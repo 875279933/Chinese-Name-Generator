@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Gerador de nomes chineses para homens - Tradução do inglês para chinês + Nomenclatura dos cinco elementos. Gere nomes chineses autênticos para homens com significado, pinyin e guia de pronúncia.">
+    <meta name="keywords" content="gerador de nomes chineses homem, nome chinês masculino, gerador de nomes chineses grátis">
+    <meta name="author" content="Dr. Chen Ming - Consultor de nomenclatura chinesa tradicional">
+    <meta name="robots" content="index, follow">
+    <title>Gerador de Nomes Chineses para Homens | Tradução Inglês-Chinês</title>
+    <link rel="canonical" href="https://chinesenamegeneratormale.com/pt">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chinesenamegeneratormale.com/pt">
+    <meta property="og:title" content="Gerador de Nomes Chineses para Homens | Tradução Inglês-Chinês">
+    <meta property="og:description" content="Gerador de nomes chineses para homens - Tradução do inglês para chinês + Nomenclatura dos cinco elementos">
+    <meta property="og:site_name" content="Chinese Name Generator Male">
+    <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Gerador de Nomes Chineses para Homens</h1>
+        <p>Ferramenta gratuita para gerar nomes chineses para homens — Tradução do inglês para chinês + Nomenclatura dos cinco elementos por data de nascimento. Crie nomes chineses autênticos para homens com significado e pinyin.</p>
+    </div>
+
+    <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="wuxing">Gerador de nomes dos cinco elementos</button>
+        <button class="mode-btn" data-mode="meaning">Gerador de nomes por significado</button>
+        <button class="mode-btn" data-mode="english">Inglês para Chinês</button>
+    </div>
+
+    <div class="card-panel">
+        <div id="wuxingModePanel">
+            <div class="input-group">
+                <label>Data de nascimento (Calendário gregoriano)</label>
+                <div class="inline-row">
+                    <select id="birthYear"></select>
+                    <select id="birthMonth">
+                        <option value="">Mês</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Sobrenome (Padrão "Li")</label>
+                <div class="style-radio-group" id="surnameGroup">
+                    <span data-surname="李" class="style-radio selected">李 Li</span>
+                    <span data-surname="王" class="style-radio">王 Wang</span>
+                    <span data-surname="张" class="style-radio">张 Zhang</span>
+                    <span data-surname="刘" class="style-radio">刘 Liu</span>
+                    <span data-surname="陈" class="style-radio">陈 Chen</span>
+                    <span data-surname="杨" class="style-radio">杨 Yang</span>
+                    <span data-surname="赵" class="style-radio">赵 Zhao</span>
+                    <span data-surname="黄" class="style-radio">黄 Huang</span>
+                    <span data-surname="周" class="style-radio">周 Zhou</span>
+                    <span data-surname="吴" class="style-radio">吴 Wu</span>
+                    <span data-surname="徐" class="style-radio">徐 Xu</span>
+                    <span data-surname="孙" class="style-radio">孙 Sun</span>
+                    <span data-surname="胡" class="style-radio">胡 Hu</span>
+                    <span data-surname="朱" class="style-radio">朱 Zhu</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Estilo do nome</label>
+                <div class="style-radio-group" id="nameStyleGroup">
+                    <span data-style="double" class="style-radio selected">Caractere duplo (Li·Mingxuan)</span>
+                    <span data-style="single" class="style-radio">Caractere único (Li·Xuan)</span>
+                    <span data-style="reduplicate" class="style-radio">Reduplicação (Li·An'an)</span>
+                </div>
+            </div>
+            <button class="btn-generate" id="generateWuxingBtn">Gerar nomes</button>
+        </div>
+
+        <div id="meaningModePanel" style="display:none;">
+            <div class="input-group">
+                <label>Categoria de significado</label>
+                <div class="style-radio-group" id="meaningCategoryGroup">
+                    <span data-category="morality" class="style-radio selected">Significado moral</span>
+                    <span data-category="career" class="style-radio">Significado profissional</span>
+                    <span data-category="health" class="style-radio">Saúde e segurança</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Estilo do nome</label>
+                <div class="style-radio-group" id="meaningStyleGroup">
+                    <span data-style="double" class="style-radio selected">Caractere duplo</span>
+                    <span data-style="single" class="style-radio">Caractere único</span>
+                    <span data-style="reduplicate" class="style-radio">Reduplicação</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Sobrenome</label>
+                <input type="text" id="meaningSurname" placeholder="Exemplo: 李" value="李">
+            </div>
+            <button class="btn-generate" id="generateMeaningBtn">Gerar nomes por significado</button>
+        </div>
+
+        <div id="englishModePanel" style="display:none;">
+            <div class="input-group">
+                <label>Digite seu nome em inglês</label>
+                <input type="text" id="englishNameInput" placeholder="Exemplo: Michael">
+            </div>
+            <button class="btn-generate" id="generateEnglishBtn">Gerar nome chinês</button>
+            <div class="results-area" id="englishResultsArea" style="display:none;">
+                <div class="result-title">Resultados</div>
+                <div id="englishNameCards"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="method-section">
+        <h2>Como usar o Gerador de nomes chineses masculinos (Guia profissional)</h2>
+        <p>Para dar a um homem um nome chinês autêntico usando este gerador de nomes chineses masculinos, você precisa considerar fonética, cultura e equilíbrio dos Cinco Elementos. Este gerador oferece três métodos complementares:</p>
+        <h3>Método 1: Gerador de nomes chineses masculinos por Cinco Elementos e data de nascimento</h3>
+        <p>Com base na data de nascimento, este gerador extrai o signo do zodíaco e os Cinco Elementos sazonais, depois seleciona nomes masculinos chineses que complementam seu destino. Suporta sobrenomes personalizados e três estilos de nomes: caractere único (conciso e ousado), dois caracteres (clássico e estável), duplicado (amigável e fofo).</p>
+        <h3>Método 2: Gerador de nomes chineses masculinos por significado</h3>
+        <p>Com base na categoria de significado desejada, este gerador cria nomes representando cultivamento moral (品德修养), carreira e ambição (前程事业), ou saúde e segurança (平安健康). Escolha a qualidade que deseja que seu nome encarne.</p>
+        <h3>Método 3: Gerador de nomes chineses masculinos do inglês para chinês</h3>
+        <p>Com base em modelos de linguagem avançados, este gerador traduz a pronúncia e significado de nomes em inglês nas combinações de nomes masculinos chineses mais adequadas, com Pinyin, significado em inglês e guia de pronúncia.</p>
+    </div>
+
+    <div class="expertise-section">
+        <h2>Nossa expertise em nomes masculinos chineses</h2>
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <h3>Experiência</h3>
+                <p>Milhares de gerações bem-sucedidas de nomes chineses masculinos em mais de 50 países, ajudando homens a encontrar identidades autênticas por meio de nomes chineses masculinos cuidadosamente criados.</p>
+            </div>
+            <div class="expertise-item">
+                <h3>Expertise</h3>
+                <p>Conhecimento profundo das tradições chinesas de nomenclatura enraizadas no <em>Xiaoxue (Aprendizado Elementar)</em>, <em>Sishu (Quatro Livros)</em> e teoria dos Cinco Elementos (<em>Wuxing</em>) da filosofia chinesa clássica.</p>
+            </div>
+            <div class="expertise-item">
+                <h3>Autoridade</h3>
+                <p>Referencia fontes clássicas incluindo <em>Zhouyi (Livro das Mudanças)</em>, <em>Shuowen Jiezi</em> e <em>Sancai Tuhui</em> para garantir precisão etimológica em cada nome chinês masculino gerado.</p>
+            </div>
+            <div class="expertise-item">
+                <h3>Confiança</h3>
+                <p>Sua privacidade está protegida. Não armazenamos dados pessoais. Todo processamento de nomes usa endpoints de API seguros e oficiais. Metodologia transparente sem custos ocultos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section" itemscope itemtype="https://schema.org/Person">
+        <h2>Sobre o especialista em nomes chineses masculinos</h2>
+        <div class="about-content">
+            <div class="about-image">👤</div>
+            <div class="about-text">
+                <p class="about-name">Dr. Chen Ming</p>
+                <p class="about-credentials">Consultor de nomenclatura chinesa tradicional | Especialista em cinco elementos</p>
+                <p class="about-bio">Com mais de 20 anos de experiência em nomenclatura chinesa tradicional, o Dr. Chen dedicou sua vida profissional a preservar e modernizar a arte de nomear homens chineses. Ele combina princípios tradicionais de nomenclatura do "Livro das Mutações" e da "Enciclopédia Yongle" com tecnologia para criar nomes chineses autênticos com significado para homens em todo o mundo.</p>
+                <div class="credentials-list">
+                    <span class="credential-badge">📜 Estudos de textos clássicos chineses, Universidade de Peking</span>
+                    <span class="credential-badge">🎋 Consultor certificado pela Associação de Nomes Chineses</span>
+                    <span class="credential-badge">🏆 Mais de 20 anos de experiência em nomenclatura tradicional</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Chinese Name Generator Male. Todos os direitos reservados.</p>
+        <p>
+            <a href="/">Início</a>
+            <a href="/privacy-policy.html">Política de privacidade</a>
+            <a href="/terms-of-use.html">Termos de uso</a>
+            <a href="/cookie-policy.html">Política de cookies</a>
+            <select id="langSelect" onchange="switchLanguage(this.value)" style="margin-left:1rem;padding:0.3rem 0.6rem;border-radius:8px;border:1px solid #d9c7b0;background:#fcf6ed;color:#5a4a3a;font-size:0.85rem;cursor:pointer;">
+                <option value="/">🇬🇧 English</option>
+                <option value="/fr/">🇫🇷 Français</option>
+                <option value="/de/">🇩🇪 Deutsch</option>
+                <option value="/es/">🇪🇸 Español</option>
+                <option value="/pt/" selected>🇵🇹 Português</option>
+                <option value="/it/">🇮🇹 Italiano</option>
+            </select>
+        </p>
+    </footer>
+    <script>
+        function switchLanguage(url) { if(url) window.location.href = url; }
+    </script>
+</div>
+<script src="/assets/js/common.js"></script>
+</body>
+</html>
