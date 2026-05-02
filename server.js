@@ -13,7 +13,7 @@ app.post('/api/generate-name', async (req, res) => {
   try {
     const response = await axios.post(
       process.env.DOUBAO_API_URL,
-      {const DAILY_LIMIT = 10;  // 这里设置每日限制次数
+      {const DAILY_LIMIT = 15;  // 这里设置每日限制次数
         model: process.env.DOUBAO_MODEL,
         messages: req.body.messages,
         temperature: req.body.temperature || 0.75
