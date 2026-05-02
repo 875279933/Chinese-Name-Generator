@@ -1,33 +1,5 @@
-const DAILY_LIMIT = 5;
-    const STORAGE_KEY = "cn_name_generator_date";
-    const COUNT_KEY = "cn_name_generator_count";
-
-    function getTodayKey() {
-        const now = new Date();
-        return `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
-    }
-
-    function checkDailyLimit() {
-        const today = getTodayKey();
-        const storedDate = localStorage.getItem(STORAGE_KEY);
-        if (storedDate !== today) {
-            localStorage.setItem(STORAGE_KEY, today);
-            localStorage.setItem(COUNT_KEY, "0");
-        }
-        const count = parseInt(localStorage.getItem(COUNT_KEY) || "0");
-        return count < DAILY_LIMIT;
-    }
-
-    function incrementCount() {
-        const count = parseInt(localStorage.getItem(COUNT_KEY) || "0");
-        localStorage.setItem(COUNT_KEY, String(count + 1));
-    }
-
-    function isValidEnglishName(raw) { return /^[A-Za-z\s]+$/.test(raw.trim()) && raw.trim().length>0; }
+function isValidEnglishName(raw) { return /^[A-Za-z\s]+$/.test(raw.trim()) && raw.trim().length>0; }
     async function callAIAPI(englishName) {
-        if (!checkDailyLimit()) {
-            throw new Error("DAILY_LIMIT_REACHED");
-        }
         const systemPrompt = `You are an expert in Chinese male naming. Respond ONLY with a valid JSON object. Use this exact structure:
 {"primary": {"chn": "ChineseName", "pinyin": "Pin Yin with spaces", "meaning": "English meaning", "pronunciation": "English guide"},"alternatives": [{"chn": "Alt1","pinyin": "...","meaning": "...","pronunciation": "..."},{"chn": "Alt2","pinyin": "...","meaning": "...","pronunciation": "..."}]}
 Rules: Provide 3 Chinese male names ONLY. The names MUST be masculine and suitable for men. NEVER provide female names. All characters must have masculine connotations. Return only JSON.`;
@@ -43,14 +15,10 @@ Rules: Provide 3 Chinese male names ONLY. The names MUST be masculine and suitab
         const match = content.match(/\{[\s\S]*\}/);
         const parsed = JSON.parse(match[0]);
         if (!parsed.primary || !parsed.alternatives) throw new Error("incomplete");
-        incrementCount();
         return { primary: parsed.primary, alternatives: parsed.alternatives.slice(0,2) };
     }
 
     async function callAIAPIForWuxing(birthYear, birthMonth, surname, styleType, zodiac, preferredElement, seasonElement) {
-        if (!checkDailyLimit()) {
-            throw new Error("DAILY_LIMIT_REACHED");
-        }
         const styleMap = {
             "single": "single character name (e.g., Li·Xuan)",
             "double": "double character name (e.g., Li·Mingxuan)",
@@ -100,10 +68,6 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
     async function renderEnglishWithAI(englishName) {
         const container = document.getElementById("englishNameCards");
         if (!isValidEnglishName(englishName)) { container.innerHTML = `<div class="error-msg">Please enter a valid English name</div>`; return; }
-        if (!checkDailyLimit()) {
-            container.innerHTML = `<div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div>`;
-            return;
-        }
         container.innerHTML = `<div class="name-card"><div class="loading-text"><div class="loading-spinner"></div> Generating names...</div></div>`;
         try {
             const result = await generateChineseNames(englishName);
@@ -112,11 +76,7 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
             for(let alt of result.alternatives) html += `<div class="name-card"><div class="badge">Alternative</div><div class="chinese-name">${escapeHtml(alt.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(alt.chn)}','${escapeHtml(alt.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(alt.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(alt.meaning)}</div><div class="pronunciation">Pronunciation: ${escapeHtml(alt.pronunciation)}</div></div>`;
             container.innerHTML = html;
         } catch(e) {
-            if (e.message === "DAILY_LIMIT_REACHED") {
-                container.innerHTML = `<div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div>`;
-            } else {
-                container.innerHTML = `<div class="error-msg">Generation failed, please try again</div>`;
-            }
+            container.innerHTML = `<div class="error-msg">Generation failed, please try again</div>`;
         }
     }
 
@@ -264,10 +224,6 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
 
     function renderMeaningWithAI(surname, meaningType, styleType) {
         const container = document.getElementById("meaningNameCards");
-        if (!checkDailyLimit()) {
-            container.innerHTML = `<div class="name-card"><div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div></div>`;
-            return;
-        }
         const meaningLabels = { "moral": "moral cultivation and virtue", "career": "career ambition and success", "health": "health and safety" };
         const label = meaningLabels[meaningType] || "positive meaning";
         const styleDesc = styleType === "single" ? "single character" : styleType === "double" ? "double character" : "reduplicate";
@@ -304,19 +260,12 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
             }
             container.innerHTML = html;
         }).catch(e => {
-            if (e.message === "DAILY_LIMIT_REACHED") {
-                container.innerHTML = `<div class="name-card"><div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div></div>`;
-            } else {
-                container.innerHTML = `<div class="error-msg">Generation failed, showing local results</div>`;
-                setTimeout(() => renderMeaningDefault(surname, meaningType, styleType), 100);
-            }
+            container.innerHTML = `<div class="error-msg">Generation failed, showing local results</div>`;
+            setTimeout(() => renderMeaningDefault(surname, meaningType, styleType), 100);
         });
     }
 
     async function callMeaningAPI(surname, meaningType, styleType) {
-        if (!checkDailyLimit()) {
-            throw new Error("DAILY_LIMIT_REACHED");
-        }
         const meaningLabels = { "moral": "moral cultivation and virtue", "career": "career ambition and success", "health": "health and safety" };
         const label = meaningLabels[meaningType] || "positive meaning";
         const styleDesc = styleType === "single" ? "single character" : styleType === "double" ? "double character" : "reduplicate";
@@ -335,7 +284,6 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
         const match = content.match(/\{[\s\S]*\}/);
         const parsed = JSON.parse(match[0]);
         if (!parsed.primary || !parsed.alternatives) throw new Error("incomplete");
-        incrementCount();
         return { primary: parsed.primary, alternatives: parsed.alternatives.slice(0, 2) };
     }
     
@@ -536,12 +484,6 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
             return;
         }
 
-        if (!checkDailyLimit()) {
-            container.innerHTML = `<div class="name-card"><div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div></div>`;
-            analysisDiv.innerHTML = `Analysis: ${analysisText}`;
-            return;
-        }
-
         container.innerHTML = `
             <div class="name-card">
                 <div class="loading-text"><div class="loading-spinner"></div> Analyzing Five Elements and generating names...</div>
@@ -576,12 +518,8 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
             }
             container.innerHTML = html;
         }).catch(e => {
-            if (e.message === "DAILY_LIMIT_REACHED") {
-                container.innerHTML = `<div class="name-card"><div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div></div>`;
-            } else {
-                container.innerHTML = `<div class="error-msg">Generation failed, showing local results</div>`;
-                setTimeout(() => renderWuxingDefault(year, month, finalSurname, styleType), 100);
-            }
+            container.innerHTML = `<div class="error-msg">Generation failed, showing local results</div>`;
+            setTimeout(() => renderWuxingDefault(year, month, finalSurname, styleType), 100);
             analysisDiv.innerHTML = `Analysis: ${analysisText}`;
         });
     }
