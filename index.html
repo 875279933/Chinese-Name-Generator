@@ -955,23 +955,50 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
             </div>`;
         analysisDiv.innerHTML = `Analysis: ${analysisText}`;
 
-        callAIAPIForWuxing(year, month, finalSurname, styleType, zodiac, mainElem, seasonElem).then(result => {
-            let html = `<div class="extra-info">Enhanced names based on Five Elements analysis for "${escapeHtml(finalSurname)}" family:</div>`;
-            html += `<div class="name-card"><div class="badge rec-badge">Recommended</div><div class="chinese-name">${escapeHtml(result.primary.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(result.primary.chn)}','${escapeHtml(result.primary.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(result.primary.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(result.primary.meaning)}</div><div class="pronunciation">Element: ${escapeHtml(result.primary.element || mainElem)} | Pronunciation: ${escapeHtml(result.primary.pronunciation)}</div></div>`;
-            for(let alt of result.alternatives) {
-                html += `<div class="name-card"><div class="badge">Alternative</div><div class="chinese-name">${escapeHtml(alt.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(alt.chn)}','${escapeHtml(alt.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(alt.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(alt.meaning)}</div><div class="pronunciation">Element: ${escapeHtml(alt.element || mainElem)} | Pronunciation: ${escapeHtml(alt.pronunciation)}</div></div>`;
-            }
+        if (window.isInitialLoad) {
+            let html = `<div class="name-card">
+                <div class="badge rec-badge">Recommended</div>
+                <div class="chinese-name">李轩<span class="audio-btn" onclick="playAudio('李轩','Li Xuan',this)"><span class="audio-icon">🔊</span></span></div>
+                <div class="pinyin">Lǐ Xuān</div>
+                <div class="meaning">Wood Element - Elegant and refined</div>
+                <div class="pronunciation">Pronunciation: Lee Shwen</div>
+            </div>
+            <div class="name-card">
+                <div class="badge">Alternative</div>
+                <div class="chinese-name">李浩<span class="audio-btn" onclick="playAudio('李浩','Li Hao',this)"><span class="audio-icon">🔊</span></span></div>
+                <div class="pinyin">Lǐ Hào</div>
+                <div class="meaning">Water Element - Vast and profound</div>
+                <div class="pronunciation">Pronunciation: Lee How</div>
+            </div>
+            <div class="name-card">
+                <div class="badge">Alternative</div>
+                <div class="chinese-name">李俊<span class="audio-btn" onclick="playAudio('李俊','Li Jun',this)"><span class="audio-icon">🔊</span></span></div>
+                <div class="pinyin">Lǐ Jùn</div>
+                <div class="meaning">Fire Element - Talented and outstanding</div>
+                <div class="pronunciation">Pronunciation: Lee Jwen</div>
+            </div>`;
             container.innerHTML = html;
-            analysisDiv.innerHTML = `Analysis: ${analysisText} <span style="color:#7b9e73;font-size:0.75rem;">✓ Enhanced</span>`;
-        }).catch(e => {
-            if (e.message === "DAILY_LIMIT_REACHED") {
-                container.innerHTML = `<div class="name-card"><div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div></div>`;
-            } else {
-                container.innerHTML = `<div class="error-msg">Generation failed, showing local results</div>`;
-                setTimeout(() => renderWuxingDefault(year, month, finalSurname, styleType), 100);
-            }
             analysisDiv.innerHTML = `Analysis: ${analysisText}`;
-        });
+            window.isInitialLoad = false;
+        } else {
+            callAIAPIForWuxing(year, month, finalSurname, styleType, zodiac, mainElem, seasonElem).then(result => {
+                let html = `<div class="extra-info">Enhanced names based on Five Elements analysis for "${escapeHtml(finalSurname)}" family:</div>`;
+                html += `<div class="name-card"><div class="badge rec-badge">Recommended</div><div class="chinese-name">${escapeHtml(result.primary.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(result.primary.chn)}','${escapeHtml(result.primary.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(result.primary.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(result.primary.meaning)}</div><div class="pronunciation">Element: ${escapeHtml(result.primary.element || mainElem)} | Pronunciation: ${escapeHtml(result.primary.pronunciation)}</div></div>`;
+                for(let alt of result.alternatives) {
+                    html += `<div class="name-card"><div class="badge">Alternative</div><div class="chinese-name">${escapeHtml(alt.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(alt.chn)}','${escapeHtml(alt.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(alt.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(alt.meaning)}</div><div class="pronunciation">Element: ${escapeHtml(alt.element || mainElem)} | Pronunciation: ${escapeHtml(alt.pronunciation)}</div></div>`;
+                }
+                container.innerHTML = html;
+                analysisDiv.innerHTML = `Analysis: ${analysisText} <span style="color:#7b9e73;font-size:0.75rem;">✓ Enhanced</span>`;
+            }).catch(e => {
+                if (e.message === "DAILY_LIMIT_REACHED") {
+                    container.innerHTML = `<div class="name-card"><div class="error-msg">Daily query limit (5 times/day) reached. Please try again tomorrow.</div></div>`;
+                } else {
+                    container.innerHTML = `<div class="error-msg">Generation failed, showing local results</div>`;
+                    setTimeout(() => renderWuxingDefault(year, month, finalSurname, styleType), 100);
+                }
+                analysisDiv.innerHTML = `Analysis: ${analysisText}`;
+            });
+        }
     }
     
     let currentStyle = "single";
@@ -1077,6 +1104,7 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
     let currentSurname = "李";
     let currentMeaningType = "moral";
     let currentMeaningStyle = "single";
+    window.isInitialLoad = true;
 
     function setMode(mode) {
         currentMode = mode;
