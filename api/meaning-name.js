@@ -1,31 +1,26 @@
-const axios = require('axios');
+import { NextResponse } from 'next/server';
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
+export async function POST(request) {
   try {
-    const { messages, temperature } = req.body;
+    const { messages, temperature } = await request.json();
     
-    const response = await axios.post(
-      process.env.DOUBAO_API_URL,
-      {
+    const response = await fetch(process.env.DOUBAO_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.DOUBAO_API_KEY}`
+      },
+      body: JSON.stringify({
         model: process.env.DOUBAO_MODEL,
         messages: messages,
         temperature: temperature || 0.8
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.DOUBAO_API_KEY}`
-        }
-      }
-    );
+      })
+    });
 
-    res.json(response.data);
+    const data = await response.json();
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Proxy error:', error.message);
-    res.status(500).json({ error: 'Internal server error' });
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-};
+}
