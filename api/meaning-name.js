@@ -1,26 +1,48 @@
-import { NextResponse } from 'next/server';
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-export async function POST(request) {
   try {
-    const { messages, temperature } = await request.json();
+    const { messages, temperature } = req.body;
     
-    const response = await fetch(process.env.DOUBAO_API_URL, {
+    const apiUrl = process.env.DOUBAO_API_URL;
+    const apiKey = process.env.DOUBAO_API_KEY;
+    const model = process.env.DOUBAO_MODEL;
+    
+    if (!apiUrl || !apiKey || !model) {
+      return res.status(500).json({ error: 'Server configuration error - missing environment variables' });
+    }
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.DOUBAO_API_KEY}`
+        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: process.env.DOUBAO_MODEL,
+        model: model,
         messages: messages,
         temperature: temperature || 0.8
       })
     });
 
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      return res.status(response.status).json({ 
+        error: `API request failed`,
+        status: response.status,
+        details: errorData 
+      });
+    }
+
     const data = await response.json();
-    return NextResponse.json(data);
+    res.json(data);
   } catch (error) {
     console.error('Proxy error:', error.message);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    res.status(500).json({ 
+      error: 'Internal server error',
+      details: error.message 
+    });
   }
-}
+};
