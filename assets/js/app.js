@@ -1,24 +1,107 @@
 function isValidEnglishName(raw) { return /^[A-Za-z\s]+$/.test(raw.trim()) && raw.trim().length>0; }
+    
+    const DAILY_LIMIT = 5;
+    
+    function getTodayKey() {
+        const today = new Date();
+        return `query_count_${today.getFullYear()}_${today.getMonth()+1}_${today.getDate()}`;
+    }
+    
+    function getTodayCount() {
+        const key = getTodayKey();
+        return parseInt(localStorage.getItem(key) || '0');
+    }
+    
+    function incrementCount() {
+        const key = getTodayKey();
+        const count = getTodayCount();
+        localStorage.setItem(key, String(count + 1));
+        return count + 1;
+    }
+    
+    function checkDailyLimit() {
+        const count = getTodayCount();
+        return count < DAILY_LIMIT;
+    }
+    
+    function getRemainingCount() {
+        return DAILY_LIMIT - getTodayCount();
+    }
+    
     async function callAIAPI(englishName) {
+        console.log('callAIAPI called with:', englishName);
+        
+        if (!checkDailyLimit()) {
+            throw new Error(`Daily limit exceeded. You can try again tomorrow.`);
+        }
+        
         const systemPrompt = `You are an expert in Chinese male naming. Respond ONLY with a valid JSON object. Use this exact structure:
 {"primary": {"chn": "ChineseName", "pinyin": "Pin Yin with spaces", "meaning": "English meaning", "pronunciation": "English guide"},"alternatives": [{"chn": "Alt1","pinyin": "...","meaning": "...","pronunciation": "..."},{"chn": "Alt2","pinyin": "...","meaning": "...","pronunciation": "..."}]}
 Rules: Provide 3 Chinese male names ONLY. The names MUST be masculine and suitable for men. NEVER provide female names. All characters must have masculine connotations. Return only JSON.`;
         const userMessage = `Generate 3 Chinese male names for "${englishName}". These must be masculine names suitable for men, not women.`;
-        const res = await fetch('/api/generate-name', {
-            method: "POST", headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ messages: [{ role: "system", content: systemPrompt },{ role: "user", content: userMessage }], temperature: 0.75 })
-        });
-        if (!res.ok) throw new Error(`API ${res.status}`);
-        const data = await res.json();
-        const content = data?.choices?.[0]?.message?.content;
-        if (!content) throw new Error("empty");
-        const match = content.match(/\{[\s\S]*\}/);
-        const parsed = JSON.parse(match[0]);
-        if (!parsed.primary || !parsed.alternatives) throw new Error("incomplete");
-        return { primary: parsed.primary, alternatives: parsed.alternatives.slice(0,2) };
+        
+        const requestBody = { 
+            messages: [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: userMessage }
+            ], 
+            temperature: 0.75 
+        };
+        
+        console.log('Fetching from /api/generate-name...');
+        console.log('Request body:', JSON.stringify(requestBody, null, 2));
+        
+        try {
+            const res = await fetch('/api/generate-name', {
+                method: "POST", 
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(requestBody),
+                timeout: 30000
+            });
+            
+            console.log('API response status:', res.status);
+            
+            if (!res.ok) {
+                const errorText = await res.text();
+                console.error('API error response:', errorText);
+                throw new Error(`API ${res.status}: ${errorText}`);
+            }
+            
+            const data = await res.json();
+            console.log('API response received:', JSON.stringify(data, null, 2));
+            
+            const content = data?.choices?.[0]?.message?.content;
+            if (!content) {
+                console.error('Empty content in response');
+                throw new Error("empty");
+            }
+            
+            const match = content.match(/\{[\s\S]*\}/);
+            if (!match) {
+                console.error('No JSON match found in content:', content);
+                throw new Error("no_json");
+            }
+            
+            const parsed = JSON.parse(match[0]);
+            if (!parsed.primary || !parsed.alternatives) throw new Error("incomplete");
+            
+            incrementCount();
+            return { primary: parsed.primary, alternatives: parsed.alternatives.slice(0,2) };
+            
+        } catch (error) {
+            console.error('callAIAPI error:', error.message);
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                console.error('Network error - check if backend server is running');
+            }
+            throw error;
+        }
     }
 
     async function callAIAPIForWuxing(birthYear, birthMonth, surname, styleType, zodiac, preferredElement, seasonElement) {
+        if (!checkDailyLimit()) {
+            throw new Error(`Daily limit exceeded. You can try again tomorrow.`);
+        }
+        
         const styleMap = {
             "single": "single character name (e.g., Li·Xuan)",
             "double": "double character name (e.g., Li·Mingxuan)",
@@ -40,6 +123,8 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
         const match = content.match(/\{[\s\S]*\}/);
         const parsed = JSON.parse(match[0]);
         if (!parsed.primary || !parsed.alternatives) throw new Error("incomplete");
+        
+        incrementCount();
         return { primary: parsed.primary, alternatives: parsed.alternatives.slice(0,2) };
     }
     const offlineNameMap = {
@@ -54,7 +139,14 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
         if(offlineNameMap[key]) return offlineNameMap[key];
         return { primary: { chn:"瑞铭",pinyin:"Ruì Míng",meaning:"Wise and noble",pronunciation:"Ray Ming"}, alternatives:[{chn:"瑞安",pinyin:"Ruì Ān",meaning:"Tranquil wisdom",pronunciation:"Ray An"},{chn:"铭泽",pinyin:"Míng Zé",meaning:"Kind and brilliant",pronunciation:"Ming Zuh"}] };
     }
-    async function generateChineseNames(en) { try { return await callAIAPI(en); } catch(e) { return fallbackGenerate(en); } }
+    async function generateChineseNames(en) { 
+        try { 
+            return await callAIAPI(en); 
+        } catch(e) { 
+            console.error('API call failed:', e.message);
+            return fallbackGenerate(en); 
+        } 
+    }
 
     function renderEnglishDefault(englishName) {
         const container = document.getElementById("englishNameCards");
@@ -67,16 +159,23 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
 
     async function renderEnglishWithAI(englishName) {
         const container = document.getElementById("englishNameCards");
-        if (!isValidEnglishName(englishName)) { container.innerHTML = `<div class="error-msg">Please enter a valid English name</div>`; return; }
+        if (!isValidEnglishName(englishName)) { 
+            container.innerHTML = `<div class="error-msg">Please enter a valid English name</div>`; 
+            return; 
+        }
         container.innerHTML = `<div class="name-card"><div class="loading-text"><div class="loading-spinner"></div> Generating names...</div></div>`;
         try {
+            console.log('Starting AI name generation for:', englishName);
             const result = await generateChineseNames(englishName);
-            let html = `<div class="extra-info">Names for "${escapeHtml(englishName)}":</div>`;
+            console.log('AI generation successful:', result);
+            let html = `<div class="extra-info">Names for "${escapeHtml(englishName)}" (AI generated):</div>`;
             html += `<div class="name-card"><div class="badge rec-badge">Recommended</div><div class="chinese-name">${escapeHtml(result.primary.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(result.primary.chn)}','${escapeHtml(result.primary.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(result.primary.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(result.primary.meaning)}</div><div class="pronunciation">Pronunciation: ${escapeHtml(result.primary.pronunciation)}</div></div>`;
             for(let alt of result.alternatives) html += `<div class="name-card"><div class="badge">Alternative</div><div class="chinese-name">${escapeHtml(alt.chn)}<button class="audio-btn" onclick="playAudio('${escapeHtml(alt.chn)}','${escapeHtml(alt.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div><div class="pinyin">${escapeHtml(alt.pinyin)}</div><div class="meaning">Meaning: ${escapeHtml(alt.meaning)}</div><div class="pronunciation">Pronunciation: ${escapeHtml(alt.pronunciation)}</div></div>`;
             container.innerHTML = html;
         } catch(e) {
-            container.innerHTML = `<div class="error-msg">Generation failed, please try again</div>`;
+            console.error('AI generation failed:', e.message);
+            container.innerHTML = `<div class="error-msg">Generation failed: ${escapeHtml(e.message)}. Showing local results instead.</div>`;
+            setTimeout(() => renderEnglishDefault(englishName), 100);
         }
     }
 
@@ -266,6 +365,10 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
     }
 
     async function callMeaningAPI(surname, meaningType, styleType) {
+        if (!checkDailyLimit()) {
+            throw new Error(`Daily limit exceeded. You can try again tomorrow.`);
+        }
+        
         const meaningLabels = { "moral": "moral cultivation and virtue", "career": "career ambition and success", "health": "health and safety" };
         const label = meaningLabels[meaningType] || "positive meaning";
         const styleDesc = styleType === "single" ? "single character" : styleType === "double" ? "double character" : "reduplicate";
@@ -284,6 +387,8 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
         const match = content.match(/\{[\s\S]*\}/);
         const parsed = JSON.parse(match[0]);
         if (!parsed.primary || !parsed.alternatives) throw new Error("incomplete");
+        
+        incrementCount();
         return { primary: parsed.primary, alternatives: parsed.alternatives.slice(0, 2) };
     }
     
