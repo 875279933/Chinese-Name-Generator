@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Most Common Chinese Names - Discover the most popular and common Chinese male names with Pinyin, pronunciation, and meanings.">
+    <meta name="description" content="Common Chinese Male Names - Discover the most popular common Chinese male names with Pinyin, pronunciation, and meanings. Find traditional and modern common Chinese male names.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://chinesenamegeneratormale.com/common-chinese-names.html">
-    <title>Most Common Chinese Names - Popular Chinese Male Names</title>
+    <title>Common Chinese Male Names - Most Popular Chinese Names</title>
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Most Common Chinese Names">
-    <meta property="og:description" content="Discover the most popular Chinese male names with Pinyin, pronunciation, and meanings.">
+    <meta property="og:title" content="Common Chinese Male Names">
+    <meta property="og:description" content="Common Chinese Male Names - Discover popular Chinese male names with Pinyin, pronunciation, and meanings.">
     <meta property="og:url" content="https://chinesenamegeneratormale.com/common-chinese-names.html">
 
     <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
@@ -19,9 +19,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Most Common Chinese Names",
+        "name": "Common Chinese Male Names",
         "url": "https://chinesenamegeneratormale.com/common-chinese-names.html",
-        "description": "Discover the most popular and common Chinese male names with Pinyin, pronunciation, and meanings."
+        "description": "Common Chinese Male Names - Explore the most common Chinese male names with Pinyin, pronunciation, and meanings. Find traditional and modern common Chinese male names."
     }
     </script>
 
@@ -96,11 +96,11 @@
 <body>
 <div class="container">
     <div class="hero">
-        <h1>Most Common Chinese Male Names</h1>
+        <h1>Common Chinese Male Names</h1>
         <button class="refresh-btn" id="refreshBtn">
             <span>🔄</span> Refresh Names
         </button>
-        <p>Discover the most popular Chinese male names. Click refresh to see different commonly used Chinese names with Pinyin and meanings.</p>
+        <p>Discover common Chinese male names. Click refresh to see different names with Pinyin, pronunciation, and meanings. Explore our collection of popular names.</p>
     </div>
 
     <div class="card-panel">
@@ -116,7 +116,7 @@
         </div>
 
         <div id="commonNameResults" class="results-area">
-            <div class="result-title">Most Common Chinese Male Names</div>
+            <div class="result-title">Common Chinese Male Names</div>
             <div id="commonNameCards" class="name-cards-grid">
                 <div class="name-card">
                     <div class="loading-text"><div class="loading-spinner"></div> Loading names...</div>
@@ -126,12 +126,14 @@
     </div>
 
     <div class="method-section">
-        <h2>About Most Common Chinese Names</h2>
-        <p>These are some of the most commonly used Chinese male names in China and Chinese communities worldwide. These names have stood the test of time and remain popular choices for parents.</p>
+        <h2>About Common Chinese Male Names</h2>
+        <p>Common Chinese male names are widely used across China and Chinese communities worldwide. These names have stood the test of time and remain popular choices for parents looking for traditional or modern options.</p>
         <h3>Popular Surnames</h3>
-        <p>Chinese surnames like Li, Wang, Zhang, Liu, and Chen are the most common, with millions of people sharing these family names across China.</p>
+        <p>Chinese surnames like Li, Wang, Zhang, Liu, and Chen are among the most common, often paired with popular given names to create these names.</p>
         <h3>Popular Given Names</h3>
-        <p>Common given names often carry positive meanings related to wisdom, strength, prosperity, and virtue. Many traditional names remain popular today.</p>
+        <p>These names often carry positive meanings related to wisdom, strength, prosperity, and virtue. Whether you're looking for traditional or more modern options, these names remain popular choices for families.</p>
+        <h3>Why Choose These Names?</h3>
+        <p>Common Chinese male names offer familiarity and cultural significance. They are easy to pronounce and remember, making them ideal for both personal and professional use. Many have deep cultural roots and positive connotations that resonate with families.</p>
     </div>
 
     <footer>
@@ -146,282 +148,7 @@
     </footer>
 </div>
 
-<script>
-let commonNamesData = null;
-let isRefreshing = false;
-
-// 使用内联数据作为主要数据源，避免外部文件加载问题
-const defaultNamesData = {
-    "totalNames": 465,
-    "categories": [
-    
-        {
-            "category": "Wei Names",
-            "names": [
-                {"name": "大伟", "pinyin": "Dà wěi", "meaning": "Great", "pronunciation": "Da way"},
-                {"name": "小伟", "pinyin": "Xiǎo wěi", "meaning": "Small great", "pronunciation": "Shaw way"},
-                {"name": "明伟", "pinyin": "Míng wěi", "meaning": "Bright great", "pronunciation": "Ming way"},
-                {"name": "志伟", "pinyin": "Zhì wěi", "meaning": "Will great", "pronunciation": "Jih way"},
-                {"name": "宏伟", "pinyin": "Hóng wěi", "meaning": "Grand great", "pronunciation": "Hong way"},
-                {"name": "家伟", "pinyin": "Jiā wěi", "meaning": "Family great", "pronunciation": "Jah way"},
-                {"name": "建伟", "pinyin": "Jiàn wěi", "meaning": "Build great", "pronunciation": "Jyan way"},
-                {"name": "俊伟", "pinyin": "Jùn wěi", "meaning": "Handsome great", "pronunciation": "Jwen way"},
-                {"name": "少伟", "pinyin": "Shào wěi", "meaning": "Young great", "pronunciation": "Shaw way"},
-                {"name": "天伟", "pinyin": "Tiān wěi", "meaning": "Sky great", "pronunciation": "Tyan way"},
-                {"name": "文伟", "pinyin": "Wén wěi", "meaning": "Literature great", "pronunciation": "Wun way"},
-                {"name": "子伟", "pinyin": "Zǐ wěi", "meaning": "Child great", "pronunciation": "Tzu way"},
-                {"name": "伟杰", "pinyin": "Wěi jié", "meaning": "Great outstanding", "pronunciation": "Way jeh"},
-                {"name": "伟强", "pinyin": "Wěi qiáng", "meaning": "Great strong", "pronunciation": "Way chyang"},
-                {"name": "伟国", "pinyin": "Wěi guó", "meaning": "Great country", "pronunciation": "Way gwoh"},
-                {"name": "伟华", "pinyin": "Wěi huá", "meaning": "Great China", "pronunciation": "Way hwah"},
-                {"name": "伟民", "pinyin": "Wěi mín", "meaning": "Great people", "pronunciation": "Way min"},
-                {"name": "伟军", "pinyin": "Wěi jūn", "meaning": "Great army", "pronunciation": "Way jwen"},
-                {"name": "伟林", "pinyin": "Wěi lín", "meaning": "Great forest", "pronunciation": "Way lin"},
-                {"name": "伟成", "pinyin": "Wěi chéng", "meaning": "Great success", "pronunciation": "Way chuhng"},
-                {"name": "伟东", "pinyin": "Wěi dōng", "meaning": "Great east", "pronunciation": "Way dong"},
-                {"name": "伟南", "pinyin": "Wěi nán", "meaning": "Great south", "pronunciation": "Way nahn"},
-                {"name": "伟西", "pinyin": "Wěi xī", "meaning": "Great west", "pronunciation": "Way shee"},
-                {"name": "伟北", "pinyin": "Wěi běi", "meaning": "Great north", "pronunciation": "Way bay"},
-                {"name": "伟中", "pinyin": "Wěi zhōng", "meaning": "Great center", "pronunciation": "Way jong"},
-                {"name": "伟平", "pinyin": "Wěi píng", "meaning": "Great peace", "pronunciation": "Way ping"},
-                {"name": "伟安", "pinyin": "Wěi ān", "meaning": "Great safety", "pronunciation": "Way an"},
-                {"name": "伟宁", "pinyin": "Wěi níng", "meaning": "Great tranquility", "pronunciation": "Way ning"},
-                {"name": "伟康", "pinyin": "Wěi kāng", "meaning": "Great health", "pronunciation": "Way kahng"},
-                {"name": "伟福", "pinyin": "Wěi fú", "meaning": "Great fortune", "pronunciation": "Way foo"},
-                {"name": "伟德", "pinyin": "Wěi dé", "meaning": "Great virtue", "pronunciation": "Way duh"},
-                {"name": "伟明", "pinyin": "Wěi míng", "meaning": "Great bright", "pronunciation": "Way ming"},
-                {"name": "伟光", "pinyin": "Wěi guāng", "meaning": "Great light", "pronunciation": "Way gwahng"},
-                {"name": "伟良", "pinyin": "Wěi liáng", "meaning": "Great good", "pronunciation": "Way lyahng"},
-                {"name": "伟忠", "pinyin": "Wěi zhōng", "meaning": "Great loyal", "pronunciation": "Way jong"},
-                {"name": "伟仁", "pinyin": "Wěi rén", "meaning": "Great benevolent", "pronunciation": "Way ren"},
-                {"name": "伟义", "pinyin": "Wěi yì", "meaning": "Great righteous", "pronunciation": "Way ee"},
-                {"name": "伟礼", "pinyin": "Wěi lǐ", "meaning": "Great ritual", "pronunciation": "Way lee"},
-                {"name": "伟智", "pinyin": "Wěi zhì", "meaning": "Great wisdom", "pronunciation": "Way jih"},
-                {"name": "伟信", "pinyin": "Wěi xìn", "meaning": "Great trust", "pronunciation": "Way sheen"},
-                {"name": "伟诚", "pinyin": "Wěi chéng", "meaning": "Great sincere", "pronunciation": "Way chuhng"},
-                {"name": "伟勤", "pinyin": "Wěi qín", "meaning": "Great diligent", "pronunciation": "Way chin"},
-                {"name": "伟俭", "pinyin": "Wěi jiǎn", "meaning": "Great thrifty", "pronunciation": "Way jyan"},
-                {"name": "伟和", "pinyin": "Wěi hé", "meaning": "Great harmony", "pronunciation": "Way huh"},
-                {"name": "伟顺", "pinyin": "Wěi shùn", "meaning": "Great smooth", "pronunciation": "Way shwen"},
-                {"name": "伟达", "pinyin": "Wěi dá", "meaning": "Great reach", "pronunciation": "Way dah"},
-                {"name": "伟才", "pinyin": "Wěi cái", "meaning": "Great talent", "pronunciation": "Way tsai"},
-                {"name": "伟豪", "pinyin": "Wěi háo", "meaning": "Great heroic", "pronunciation": "Way how"},
-                {"name": "伟轩", "pinyin": "Wěi xuān", "meaning": "Great porch", "pronunciation": "Way sywen"},
-                {"name": "伟彬", "pinyin": "Wěi bīn", "meaning": "Great refined", "pronunciation": "Way bin"}
-            ]
-        }
-    ]
-};
-
-async function loadNamesData(forceReload = false) {
-    console.log('loadNamesData called, forceReload:', forceReload, 'commonNamesData exists:', commonNamesData !== null);
-    
-    // 如果数据已经加载且不需要强制刷新，直接返回
-    if (commonNamesData && !forceReload) {
-        console.log('Returning cached data');
-        return commonNamesData;
-    }
-    
-    // 直接使用内联的默认数据
-    commonNamesData = JSON.parse(JSON.stringify(defaultNamesData));
-    console.log('Using default inline data');
-    
-    // 尝试从外部文件加载数据（可选）
-    try {
-        console.log('Attempting to fetch JSON data from assets/data/common-names.json...');
-        const response = await fetch('assets/data/common-names.json', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        });
-        
-        console.log('Fetch response status:', response.status);
-        
-        if (response.ok) {
-            const jsonData = await response.json();
-            console.log('JSON data loaded successfully from external file');
-            
-            // 验证数据结构
-            if (jsonData && jsonData.categories && Array.isArray(jsonData.categories)) {
-                commonNamesData = jsonData;
-                console.log('Valid JSON structure found, using fetched data');
-            } else {
-                console.warn('JSON data structure is invalid, keeping inline data');
-            }
-        } else {
-            console.warn('HTTP error, status:', response.status, 'keeping inline data');
-        }
-    } catch (error) {
-        console.error('Failed to load JSON data from external file:', error.message);
-        console.log('Keeping inline data');
-    }
-    
-    // 更新显示的总数
-    const totalCount = commonNamesData.categories?.reduce((sum, cat) => sum + (cat.names?.length || 0), 0) || commonNamesData.totalNames;
-    document.getElementById('totalNames').textContent = totalCount;
-    
-    return commonNamesData;
-}
-
-function shuffleArray(array) {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
-
-function generateRandomNames() {
-    console.log('generateRandomNames called');
-    const allNames = [];
-    
-    if (!commonNamesData) {
-        console.error('commonNamesData is null or undefined');
-        return [];
-    }
-    
-    if (!commonNamesData.categories || !Array.isArray(commonNamesData.categories)) {
-        console.error('commonNamesData.categories is not properly initialized:', commonNamesData.categories);
-        return [];
-    }
-    
-    console.log('Found', commonNamesData.categories.length, 'categories');
-    
-    commonNamesData.categories.forEach(categoryData => {
-        if (categoryData && categoryData.names && Array.isArray(categoryData.names)) {
-            console.log('Category:', categoryData.category, 'has', categoryData.names.length, 'names');
-            categoryData.names.forEach(nameData => {
-                allNames.push({
-                    fullName: nameData.name,
-                    pinyin: nameData.pinyin,
-                    meaning: nameData.meaning,
-                    pronunciation: nameData.pronunciation,
-                    category: categoryData.category
-                });
-            });
-        } else {
-            console.log('Skipping invalid category data:', categoryData);
-        }
-    });
-    
-    console.log('Total names collected:', allNames.length);
-    
-    // 使用 Fisher-Yates 算法确保真正随机
-    const shuffled = shuffleArray(allNames);
-    const result = shuffled.slice(0, 10);
-    console.log('Returning', result.length, 'random names');
-    
-    return result;
-}
-
-function renderNames(names) {
-    const container = document.getElementById('commonNameCards');
-    let html = '';
-    
-    names.forEach((name, index) => {
-        html += `<div class="name-card">
-            <div class="badge">${index + 1}</div>
-            <div class="chinese-name">${escapeHtml(name.fullName)}<button class="audio-btn" onclick="playAudio('${escapeHtml(name.fullName)}','${escapeHtml(name.pinyin)}',this)"><span class="audio-icon">🔊</span></button></div>
-            <div class="pinyin">${escapeHtml(name.pinyin)}</div>
-            <div class="meaning">Meaning: ${escapeHtml(name.meaning)}</div>
-            <div class="pronunciation">${escapeHtml(name.pronunciation)}</div>
-        </div>`;
-    });
-    
-    container.innerHTML = html;
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-function playAudio(chineseName, pinyin, btn) {
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(chineseName);
-        utterance.lang = 'zh-CN';
-        utterance.rate = 0.7;
-        utterance.onstart = () => btn.classList.add('playing');
-        utterance.onend = () => btn.classList.remove('playing');
-        window.speechSynthesis.speak(utterance);
-    }
-}
-
-document.getElementById('refreshBtn').addEventListener('click', async () => {
-    console.log('Refresh button clicked');
-    
-    // 防连续刷新 - 3秒冷却时间
-    if (isRefreshing) {
-        console.log('Already refreshing, ignoring click');
-        return;
-    }
-    isRefreshing = true;
-    const refreshBtn = document.getElementById('refreshBtn');
-    refreshBtn.disabled = true;
-    refreshBtn.style.opacity = '0.6';
-    refreshBtn.style.cursor = 'not-allowed';
-    
-    const container = document.getElementById('commonNameCards');
-    container.innerHTML = '<div class="name-card"><div class="loading-text"><div class="loading-spinner"></div> Loading names...</div></div>';
-    
-    console.log('Calling loadNamesData with forceReload=true...');
-    await loadNamesData(true); // 强制重新加载数据
-    
-    setTimeout(() => {
-        console.log('Generating random names...');
-        const names = generateRandomNames();
-        console.log('Names generated:', names);
-        
-        if (names.length === 0) {
-            console.error('No names returned from generateRandomNames');
-            container.innerHTML = '<div class="name-card"><div class="loading-text">Failed to load names. Please try again.</div></div>';
-        } else {
-            renderNames(names);
-        }
-        
-        // 3秒后恢复刷新按钮
-        setTimeout(() => {
-            isRefreshing = false;
-            refreshBtn.disabled = false;
-            refreshBtn.style.opacity = '1';
-            refreshBtn.style.cursor = 'pointer';
-            console.log('Refresh button re-enabled');
-        }, 3000);
-    }, 300);
-});
-
-async function initPage() {
-    console.log('Initializing page...');
-    
-    try {
-        await loadNamesData();
-        console.log('Data loaded, generating names...');
-        
-        const names = generateRandomNames();
-        console.log('Generated names count:', names.length);
-        
-        if (names.length > 0) {
-            renderNames(names);
-            console.log('Names rendered successfully');
-        } else {
-            console.error('No names available, using fallback');
-            commonNamesData = JSON.parse(JSON.stringify(fallbackData));
-            renderNames(generateRandomNames());
-        }
-    } catch (error) {
-        console.error('Initialization error:', error);
-        commonNamesData = JSON.parse(JSON.stringify(fallbackData));
-        renderNames(generateRandomNames());
-    }
-}
-
-document.addEventListener('DOMContentLoaded', initPage);
-</script>
+<script src="assets/js/common-chinese-names.js"></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
