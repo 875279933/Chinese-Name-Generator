@@ -1,6 +1,6 @@
 function isValidEnglishName(raw) { return /^[A-Za-z\s]+$/.test(raw.trim()) && raw.trim().length>0; }
     
-    const DAILY_LIMIT = 5;
+    const DAILY_LIMIT = 50;
     
     function getTodayKey() {
         const today = new Date();
