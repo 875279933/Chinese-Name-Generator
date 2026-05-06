@@ -3,353 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free Chinese Name Generator Male tool - Generate authentic Chinese male names from English names, Five Elements birth date analysis, or meaning-based categories. Get Pinyin, pronunciation, and meanings.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://chinesenamegeneratormale.com">
-    <title>Chinese Name Generator Male - Free English to Chinese Male Name Generator</title>
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Chinese Name Generator Male">
-    <meta property="og:description" content="Generate authentic Chinese male names with our free tool. Get Pinyin, pronunciation, and meanings.">
-    <meta property="og:url" content="https://chinesenamegeneratormale.com">
-    <meta property="og:image" content="https://chinesenamegeneratormale.com/og-image.png">
-
-    <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Chinese Name Generator Male",
-        "url": "https://chinesenamegeneratormale.com",
-        "description": "Free Chinese Name Generator Male tool to generate authentic Chinese male names from English names, Five Elements birth date analysis, or meaning categories with accurate Pinyin.",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Web Browser",
-        "author": {
-            "@type": "Person",
-            "name": "Dr. Chen Ming",
-            "jobTitle": "Traditional Chinese Naming Consultant"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Chinese Name Generator Male",
-            "url": "https://chinesenamegeneratormale.com"
-        },
-        "datePublished": "2025-01-15",
-        "dateModified": "2026-05-02",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.6",
-            "ratingCount": "122",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "about": {
-            "@type": "Thing",
-            "name": "Chinese Male Naming",
-            "description": "Traditional Chinese naming practices for males based on Five Elements theory, classical texts, and cultural heritage."
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Chinese Name Generation Services",
-            "itemListElement": [
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "English to Chinese Name"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Five Elements Name"}},
-                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Meaning-based Name"}}
-            ]
+    <title>Chinese Name Generator Male | AI-Powered Traditional Naming Tool</title>
+    <meta name="description" content="Generate authentic Chinese male names with our AI-powered tool. Convert English names, analyze Five Elements birth charts, or create meaning-based names. Get accurate Pinyin and pronunciation.">
+    <meta name="keywords" content="chinese name generator male, chinese male names, chinese name converter, five elements naming">
+    <link rel="canonical" href="https://chinesenamegeneratormale.com/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.1em; opacity: 0.9; }
+        .content { padding: 30px; }
+        .mode-toggle { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        .mode-btn { flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid #4CAF50; background: white; color: #4CAF50; border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all 0.3s; }
+        .mode-btn:hover, .mode-btn.active { background: #4CAF50; color: white; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        .input-group input, .input-group select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; transition: border-color 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: #4CAF50; }
+        .generate-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .generate-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4); }
+        .result { margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #4CAF50; }
+        .name-card { background: white; padding: 20px; margin: 10px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .chinese-name { font-size: 2em; color: #d32f2f; margin-bottom: 10px; font-weight: bold; }
+        .pinyin { font-size: 1.3em; color: #666; margin-bottom: 10px; }
+        .meaning { color: #333; line-height: 1.6; }
+        .pronunciation { background: #e3f2fd; padding: 10px; border-radius: 5px; margin-top: 10px; font-style: italic; }
+        .error-msg { color: #d32f2f; background: #ffebee; padding: 10px; border-radius: 5px; margin-top: 10px; }
+        .loading-text { text-align: center; color: #666; font-style: italic; }
+        .loading-spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #4CAF50; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px; vertical-align: middle; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .hidden { display: none; }
+        .mode-panel { display: none; }
+        .mode-panel.active { display: block; }
+        .analysis { background: #fff3e0; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #ff9800; }
+        .analysis h3 { color: #e65100; margin-bottom: 10px; }
+        .analysis-item { margin: 5px 0; padding: 5px 0; border-bottom: 1px dashed #ffe0b2; }
+        .analysis-item:last-child { border-bottom: none; }
+        .remaining-count { text-align: center; color: #666; font-size: 14px; margin-top: 10px; }
+        .remaining-count.warning { color: #ff9800; font-weight: bold; }
+        .remaining-count.danger { color: #f44336; font-weight: bold; }
+        footer { text-align: center; padding: 20px; background: #f5f5f5; border-top: 1px solid #e0e0e0; }
+        footer a { color: #666; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: #4CAF50; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8em; }
+            .mode-btn { min-width: 100%; }
+            .content { padding: 20px; }
         }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What is this Chinese Name Generator Male tool?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "This is a free Chinese Name Generator Male tool that helps generate authentic Chinese male names based on English names, birth date Five Elements analysis, or meaning categories."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How does Five Elements Chinese Name Generator Male work?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Five Elements naming using this Chinese Name Generator Male is based on traditional Chinese philosophy where names are chosen to balance Wood, Fire, Earth, Metal, and Water elements based on your birth date."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this Chinese Name Generator Male free?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, the Chinese Name Generator Male is free to use with 5 name requests per day."
-                }
-            }
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://chinesenamegeneratormale.com"},
-            {"@type": "ListItem", "position": 2, "name": "Chinese Name Generator Male", "item": "https://chinesenamegeneratormale.com/"}
-        ]
-    }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="hero">
-        <h1>Chinese Name Generator Male</h1>
-        <p>Use this Chinese Name Generator Male to generate authentic Chinese male names from English names, Five Elements birth date analysis, or meaning-based categories. Get accurate Pinyin and pronunciation with this Chinese Name Generator Male tool.</p>
-    </div>
-
-    <div class="mode-toggle">
-        <button class="mode-btn active" data-mode="wuxing">Five Elements Name Generator Male</button>
-        <button class="mode-btn" data-mode="meaning">Meaning-based Name Generator Male</button>
-        <button class="mode-btn" data-mode="english">Convert English names to Chinese</button>
-        <button class="mode-btn" id="commonNamesBtn" onclick="window.location.href='common-chinese-names.html'">Common Chinese Names</button>
-    </div>
-
-    <div class="card-panel">
-        <div id="wuxingModePanel">
-            <div class="input-group">
-                <label>Birth Date (Gregorian Calendar)</label>
-                <div class="inline-row">
-                    <select id="birthYear" style="flex:1"></select>
-                    <select id="birthMonth" style="flex:1"></select>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Surname (Default "Li")</label>
-                <div class="style-radio-group" id="surnameGroup">
-                    <span data-surname="李" class="style-radio selected">李 Li</span>
-                    <span data-surname="王" class="style-radio">王 Wang</span>
-                    <span data-surname="张" class="style-radio">张 Zhang</span>
-                    <span data-surname="刘" class="style-radio">刘 Liu</span>
-                    <span data-surname="陈" class="style-radio">陈 Chen</span>
-                    <span data-surname="杨" class="style-radio">杨 Yang</span>
-                    <span data-surname="赵" class="style-radio">赵 Zhao</span>
-                    <span data-surname="黄" class="style-radio">黄 Huang</span>
-                    <span data-surname="周" class="style-radio">周 Zhou</span>
-                    <span data-surname="吴" class="style-radio">吴 Wu</span>
-                    <span data-surname="徐" class="style-radio">徐 Xu</span>
-                    <span data-surname="孙" class="style-radio">孙 Sun</span>
-                    <span data-surname="胡" class="style-radio">胡 Hu</span>
-                    <span data-surname="朱" class="style-radio">朱 Zhu</span>
-                    <span data-surname="高" class="style-radio">高 Gao</span>
-                    <span data-surname="林" class="style-radio">林 Lin</span>
-                    <span data-surname="何" class="style-radio">何 He</span>
-                    <span data-surname="郭" class="style-radio">郭 Guo</span>
-                    <span data-surname="马" class="style-radio">马 Ma</span>
-                    <span data-surname="罗" class="style-radio">罗 Luo</span>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Name Style</label>
-                <div class="style-radio-group" id="nameStyleGroup">
-                    <span data-style="single" class="style-radio selected">Single Character (Li · Xuan)</span>
-                    <span data-style="double" class="style-radio">Double Character (Li · Mingxuan)</span>
-                    <span data-style="reduplicate" class="style-radio">Reduplicate (Li · An'an)</span>
-                </div>
-            </div>
-            <button class="btn-generate" id="genWuxingBtn">Generate Chinese Name by Five Elements</button>
-            <div id="wuxingResults" class="results-area">
-                <div class="result-title">Five Elements Chinese Name Generator Male Results</div>
-                <div id="wuxingNameCards" class="name-cards">
-                    <div class="name-card">
-                        <div class="badge rec-badge">Recommended</div>
-                        <div class="chinese-name">李轩<span class="audio-btn" onclick="playAudio('李轩','Li Xuan',this)"><span class="audio-icon">🔊</span></span></div>
-                        <div class="pinyin">Lǐ Xuān</div>
-                        <div class="meaning">Wood Element - Elegant and refined</div>
-                        <div class="pronunciation">Pronunciation: Lee Shwen</div>
-                        <div class="pronunciation">Element: Wood (木)</div>
-                    </div>
-                    <div class="name-card">
-                        <div class="badge">Alternative</div>
-                        <div class="chinese-name">李浩<span class="audio-btn" onclick="playAudio('李浩','Li Hao',this)"><span class="audio-icon">🔊</span></span></div>
-                        <div class="pinyin">Lǐ Hào</div>
-                        <div class="meaning">Water Element - Vast and profound</div>
-                        <div class="pronunciation">Pronunciation: Lee How</div>
-                        <div class="pronunciation">Element: Water (水)</div>
-                    </div>
-                    <div class="name-card">
-                        <div class="badge">Alternative</div>
-                        <div class="chinese-name">李俊<span class="audio-btn" onclick="playAudio('李俊','Li Jun',this)"><span class="audio-icon">🔊</span></span></div>
-                        <div class="pinyin">Lǐ Jùn</div>
-                        <div class="meaning">Fire Element - Talented and outstanding</div>
-                        <div class="pronunciation">Pronunciation: Lee Jwen</div>
-                        <div class="pronunciation">Element: Fire (火)</div>
-                    </div>
-                </div>
-                <div id="wuxingAnalysis" class="extra-info" style="margin-top: 12px; background: #faf1e4; padding: 10px; border-radius: 20px;"></div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>Chinese Name Generator Male</h1>
+            <p>Use this Chinese Name Generator Male to generate authentic Chinese male names from English names, Five Elements birth date analysis, or meaning-based categories. Get accurate Pinyin and pronunciation with this Chinese Name Generator Male tool.</p>
         </div>
 
-        <div id="meaningModePanel" style="display: none;">
-            <div class="input-group">
-                <label>Surname (Default "Li")</label>
-                <div class="style-radio-group" id="meaningSurnameGroup">
-                    <span data-meaningsurname="李" class="style-radio selected">李 Li</span>
-                    <span data-meaningsurname="王" class="style-radio">王 Wang</span>
-                    <span data-meaningsurname="张" class="style-radio">张 Zhang</span>
-                    <span data-meaningsurname="刘" class="style-radio">刘 Liu</span>
-                    <span data-meaningsurname="陈" class="style-radio">陈 Chen</span>
-                    <span data-meaningsurname="杨" class="style-radio">杨 Yang</span>
-                    <span data-meaningsurname="赵" class="style-radio">赵 Zhao</span>
-                    <span data-meaningsurname="黄" class="style-radio">黄 Huang</span>
-                    <span data-meaningsurname="周" class="style-radio">周 Zhou</span>
-                    <span data-meaningsurname="吴" class="style-radio">吴 Wu</span>
-                    <span data-meaningsurname="徐" class="style-radio">徐 Xu</span>
-                    <span data-meaningsurname="孙" class="style-radio">孙 Sun</span>
-                    <span data-meaningsurname="胡" class="style-radio">胡 Hu</span>
-                    <span data-meaningsurname="朱" class="style-radio">朱 Zhu</span>
-                    <span data-meaningsurname="高" class="style-radio">高 Gao</span>
-                    <span data-meaningsurname="林" class="style-radio">林 Lin</span>
-                    <span data-meaningsurname="何" class="style-radio">何 He</span>
-                    <span data-meaningsurname="郭" class="style-radio">郭 Guo</span>
-                    <span data-meaningsurname="马" class="style-radio">马 Ma</span>
-                    <span data-meaningsurname="罗" class="style-radio">罗 Luo</span>
-                </div>
+        <div class="content">
+            <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="wuxing">Five Elements Name Generator Male</button>
+                <button class="mode-btn" data-mode="meaning">Meaning-based Name Generator Male</button>
+                <button class="mode-btn" data-mode="english">Convert English names to Chinese</button>
+                <button class="mode-btn" id="commonNamesBtn" onclick="window.location.href='common-chinese-names.html'">Common Chinese Names</button>
             </div>
-            <div class="input-group">
-                <label>Meaning Category</label>
-                <div class="style-radio-group" id="meaningCategoryGroup">
-                    <span data-meaning="moral" class="style-radio selected">Moral Cultivation (品德修养)</span>
-                    <span data-meaning="career" class="style-radio">Career & Ambition (前程事业)</span>
-                    <span data-meaning="health" class="style-radio">Health & Safety (平安健康)</span>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Name Style</label>
-                <div class="style-radio-group" id="meaningStyleGroup">
-                    <span data-meaningstyle="single" class="style-radio selected">Single Character (Li · Xuan)</span>
-                    <span data-meaningstyle="double" class="style-radio">Double Character (Li · Mingxuan)</span>
-                    <span data-meaningstyle="reduplicate" class="style-radio">Reduplicate (Li · An'an)</span>
-                </div>
-            </div>
-            <button class="btn-generate" id="genMeaningBtn">Generate Chinese Name by Meaning</button>
-            <div id="meaningResults" class="results-area">
-                <div class="result-title">Meaning-based Chinese Name Generator Male Results</div>
-                <div id="meaningNameCards" class="name-cards">
-                    <div class="name-card">
-                        <div class="badge rec-badge">Recommended</div>
-                        <div class="chinese-name">李轩<span class="audio-btn" onclick="playAudio('李轩','Li Xuan',this)"><span class="audio-icon">🔊</span></span></div>
-                        <div class="pinyin">Lǐ Xuān</div>
-                        <div class="meaning">Elegant and refined, symbolizing loftiness</div>
-                        <div class="pronunciation">Pronunciation: Lee Shwen</div>
+
+            <div class="card-panel">
+                <div id="wuxingModePanel">
+                    <div class="input-group">
+                        <label>Surname (Optional, default is random)</label>
+                        <input type="text" id="wuxingSurname" placeholder="e.g., Zhang, Li, Wang">
                     </div>
-                    <div class="name-card">
-                        <div class="badge">Alternative</div>
-                        <div class="chinese-name">李浩<span class="audio-btn" onclick="playAudio('李浩','Li Hao',this)"><span class="audio-icon">🔊</span></span></div>
-                        <div class="pinyin">Lǐ Hào</div>
-                        <div class="meaning">Vast and profound, broad-minded</div>
-                        <div class="pronunciation">Pronunciation: Lee How</div>
+                    <div class="input-group">
+                        <label>Birth Year</label>
+                        <input type="number" id="birthYear" placeholder="e.g., 1990" min="1900" max="2100">
                     </div>
-                    <div class="name-card">
-                        <div class="badge">Alternative</div>
-                        <div class="chinese-name">李俊<span class="audio-btn" onclick="playAudio('李俊','Li Jun',this)"><span class="audio-icon">🔊</span></span></div>
-                        <div class="pinyin">Lǐ Jùn</div>
-                        <div class="meaning">Talented and handsome, outstanding</div>
-                        <div class="pronunciation">Pronunciation: Lee Jwen</div>
+                    <div class="input-group">
+                        <label>Birth Month</label>
+                        <input type="number" id="birthMonth" placeholder="e.g., 5" min="1" max="12">
                     </div>
+                    <div class="input-group">
+                        <label>Naming Style</label>
+                        <select id="styleType">
+                            <option value="elegant">Elegant & Refined</option>
+                            <option value="grand">Grand & Commanding</option>
+                            <option value="modern">Modern & Minimalist</option>
+                            <option value="classical">Classical & Poetic</option>
+                        </select>
+                    </div>
+                    <button class="generate-btn" id="genWuxingBtn">Generate Five Elements Name</button>
+                    <div id="wuxingAnalysis"></div>
+                    <div id="wuxingResult"></div>
+                </div>
+
+                <div id="meaningModePanel" class="mode-panel hidden">
+                    <div class="input-group">
+                        <label>Surname (Optional, default is random)</label>
+                        <input type="text" id="meaningSurname" placeholder="e.g., Zhang, Li, Wang">
+                    </div>
+                    <div class="input-group">
+                        <label>Desired Meaning</label>
+                        <select id="meaningType">
+                            <option value="moral">Moral Cultivation & Virtue</option>
+                            <option value="career">Career Ambition & Success</option>
+                            <option value="health">Health & Safety</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Naming Style</label>
+                        <select id="meaningStyleType">
+                            <option value="elegant">Elegant & Refined</option>
+                            <option value="grand">Grand & Commanding</option>
+                            <option value="modern">Modern & Minimalist</option>
+                            <option value="classical">Classical & Poetic</option>
+                        </select>
+                    </div>
+                    <button class="generate-btn" id="genMeaningBtn">Generate Meaning-based Name</button>
+                    <div id="meaningResult"></div>
+                </div>
+
+                <div id="englishModePanel" class="mode-panel hidden">
+                    <div class="input-group">
+                        <label>English Name</label>
+                        <input type="text" id="englishName" placeholder="e.g., Michael, David, James">
+                    </div>
+                    <button class="generate-btn" id="genEnglishBtn">Convert to Chinese Name</button>
+                    <div id="englishResult"></div>
                 </div>
             </div>
+
+            <p class="remaining-count" id="remainingCount"></p>
         </div>
 
-        <div id="englishModePanel" style="display: none;">
-            <div class="input-group">
-                <label>Enter English Name (Male)</label>
-                <input type="text" id="englishNameInput" placeholder="e.g., Jack, Michael, William, Elijah, Leo" value="Jack">
-                <div class="api-note">
-                    Free Chinese Name Generator Male Tool — This Chinese Name Generator Male generates authentic Chinese male names based on your input each click.
-                </div>
-            </div>
-            <button class="btn-generate" id="genEnglishBtn">Generate Chinese Name from English</button>
-            <div id="englishResults" class="results-area">
-                <div class="result-title">English to Chinese Name Generator Male Results</div>
-                <div class="name-cards" id="englishNameCards"><div class="name-card">Enter an English name above to get Chinese name options.</div></div>
-            </div>
-        </div>
+        <footer>
+            <p>
+                <a href="/">Home</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/terms-of-use.html">Terms of Use</a>
+                <a href="/cookie-policy.html">Cookie Policy</a>
+            </p>
+            <p>&copy; 2026 Chinese Name Generator Male. All rights reserved.</p>
+        </footer>
     </div>
-
-    <div class="method-section">
-        <h2>How to Use Chinese Name Generator Male</h2>
-        <p>This Chinese Name Generator Male offers three methods to generate authentic Chinese male names. Use this Chinese Name Generator Male to find the perfect Chinese name:</p>
-        <h3>Method 1: Five Elements Birth Date</h3>
-        <p>Based on birth date, this Chinese Name Generator Male extracts zodiac and seasonal Five Elements, then selects Chinese male names that complement your destiny. Supports single character, double character, and reduplicate name styles with this Chinese Name Generator Male.</p>
-        <h3>Method 2: Meaning-based</h3>
-        <p>Using this Chinese Name Generator Male, you can choose meaning categories: moral cultivation, career ambition, or health and safety. Select the quality you want your Chinese male name to embody with this Chinese Name Generator Male.</p>
-        <h3>Method 3: English to Chinese</h3>
-        <p>Using this Chinese Name Generator Male tool, you can translate English name pronunciation and meaning into suitable Chinese male name combinations with Pinyin and pronunciation guide.</p>
-    </div>
-
-    <div class="expertise-section">
-        <h2>Our Expertise in Chinese Male Naming</h2>
-        <div class="expertise-grid">
-            <div class="expertise-item">
-                <h3>Experience</h3>
-                <p>Thousands of successful Chinese male names generated for men across 50+ countries using this Chinese Name Generator Male tool. This Chinese Name Generator Male has helped many find authentic identities.</p>
-            </div>
-            <div class="expertise-item">
-                <h3>Expertise</h3>
-                <p>Deep knowledge of Chinese male naming traditions rooted in classical Chinese philosophy and Five Elements theory. This Chinese Name Generator Male offers expert naming consultation.</p>
-            </div>
-            <div class="expertise-item">
-                <h3>Authoritativeness</h3>
-                <p>References classical sources including Zhouyi (Book of Changes) and Shuowen Jiezi for etymological accuracy in Chinese male names generated. This Chinese Name Generator Male maintains high naming standards.</p>
-            </div>
-            <div class="expertise-item">
-                <h3>Trustworthiness</h3>
-                <p>Your privacy is protected. We do not store personal data when using this Chinese Name Generator Male tool. This Chinese Name Generator Male ensures secure name generation.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="about-section" itemscope itemtype="https://schema.org/Person">
-        <h2>About the Chinese Name Generator Male Expert</h2>
-        <div class="about-content">
-            <div class="about-image">👤</div>
-            <div class="about-text">
-                <p class="about-name" itemprop="name">Dr. Chen Ming</p>
-                <p class="about-credentials" itemprop="jobTitle">Traditional Chinese Naming Consultant for Chinese Name Generator Male</p>
-                <p class="about-bio" itemprop="description">With over 20 years of experience in traditional Chinese onomastics, Dr. Chen has dedicated his career to preserving the ancient art of Chinese male naming. Using this Chinese Name Generator Male, he combines time-honored naming principles with computer technology to create authentic Chinese male names for men worldwide. This Chinese Name Generator Male reflects his expertise.</p>
-                <div class="credentials-list">
-                    <span class="credential-badge">📜 Classical Chinese Text Studies</span>
-                    <span class="credential-badge">🎋 Chinese Name Association Certified</span>
-                    <span class="credential-badge">🏆 20+ Years Experience</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 Chinese Name Generator Male. All rights reserved.</p>
-        <p>
-            <a href="/blog.html" style="color:#c28142;">Blog</a>
-            <a href="/privacy-policy.html" style="color:#c28142;">Privacy Policy</a>
-            <a href="/terms-of-use.html" style="color:#c28142;">Terms of Use</a>
-            <a href="/cookie-policy.html" style="color:#c28142;">Cookie Policy</a>
-        </p>
-    </footer>
-</div>
 
 <script src="assets/js/app.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TM99ZRRCRX');
+</script>
 </body>
 </html>
