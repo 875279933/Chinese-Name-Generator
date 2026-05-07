@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate unique Chinese male names instantly. Discover thousands of authentic names with pronunciation guides, meanings, and cultural insights. Perfect for naming inspiration.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chinesenamegeneratormale.com/random-chinese-name-generator.html">
+    <title>Random Chinese Name Generator - Generate Authentic Male Names</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Generate Random Chinese Names">
+    <meta property="og:description" content="Discover unique Chinese male names with pronunciation guides and meanings. Generate names instantly for inspiration.">
+    <meta property="og:url" content="https://chinesenamegeneratormale.com/random-chinese-name-generator.html">
+
+    <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Chinese Name Generator",
+        "url": "https://chinesenamegeneratormale.com/random-chinese-name-generator.html",
+        "description": "Discover and generate authentic Chinese male names with pronunciation guides, meanings, and cultural context."
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .refresh-btn {
+            background: linear-gradient(135deg, #c28142 0%, #8b5a2b 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(194, 129, 66, 0.4);
+        }
+        .refresh-btn:active {
+            transform: translateY(0);
+        }
+        .home-btn {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 85, 104, 0.4);
+        }
+        .home-btn:active {
+            transform: translateY(0);
+        }
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            background: #faf1e4;
+            padding: 15px 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #c28142;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #5a4a3a;
+            margin-top: 4px;
+        }
+        .name-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .name-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Random Chinese Name Generator</h1>
+        <div class="btn-group">
+            <a href="/" class="home-btn">
+                <span>🏠</span> Back to Home
+            </a>
+            <button class="refresh-btn" id="refreshBtn">
+                <span>🎲</span> Get New Names
+            </button>
+        </div>
+        <p>Find the perfect Chinese name with just one click. Each set includes Pinyin pronunciation, meaning, and helpful guidance for understanding the cultural significance behind each name.</p>
+    </div>
+
+    <div class="card-panel">
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-value" id="displayCount">10</div>
+                <div class="stat-label">Names Per Set</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalNames">220+</div>
+                <div class="stat-label">Total Names Available</div>
+            </div>
+        </div>
+
+        <div id="randomNameResults" class="results-area">
+            <div class="result-title">Chinese Male Names</div>
+            <div id="randomNameCards" class="name-cards-grid">
+                <div class="name-card">
+                    <div class="loading-text"><div class="loading-spinner"></div> Finding names...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="method-section">
+        <h2>About Chinese Names</h2>
+        <p>Chinese given names carry deep cultural significance, often reflecting values, aspirations, or natural beauty. Many traditional names combine characters with positive meanings related to wisdom, strength, or prosperity. Modern parents often seek a balance between tradition and contemporary style when choosing names for their children.</p>
+        <h3>How to Use</h3>
+        <p>Click the button above to explore a curated selection of Chinese male names. Each name comes with its Pinyin transcription, a pronunciation guide, and an explanation of its meaning. Whether you're looking for inspiration for a story character, researching family heritage, or simply curious about Chinese culture, you'll find plenty of ideas here.</p>
+        <h3>Name Characteristics</h3>
+        <p>Chinese names typically consist of one or two characters following the surname. Many names incorporate nature elements like mountains, water, or celestial bodies. Others focus on virtues such as honesty, wisdom, or courage. The characters chosen often create harmonious sounds and balanced meanings.</p>
+        <h3>Cultural Context</h3>
+        <p>In Chinese culture, naming is considered an important tradition. Names are believed to influence a person's destiny and reflect family values. Many families consult naming experts or consider astrological factors when selecting names for newborns. This tool provides a glimpse into this rich naming tradition.</p>
+        <h3>Getting Started</h3>
+        <p>Ready to explore? Click "Get New Names" to see your first set of suggestions. You can refresh as often as you like to discover new options. Each refresh brings a fresh selection of names with different meanings and styles.</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Chinese Name Generator Male. All rights reserved.</p>
+        <p>
+            <a href="/" style="color:#c28142;">Home</a>
+            <a href="/blog.html" style="color:#c28142;">Blog</a>
+            <a href="/privacy-policy.html" style="color:#c28142;">Privacy Policy</a>
+            <a href="/terms-of-use.html" style="color:#c28142;">Terms of Use</a>
+            <a href="/cookie-policy.html" style="color:#c28142;">Cookie Policy</a>
+        </p>
+    </footer>
+</div>
+
+<script src="assets/js/random-chinese-name-generator.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TM99ZRRCRX');
+</script>
+</body>
+</html>
