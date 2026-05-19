@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Name Generator for Elves - Create authentic elven names for your fantasy characters. Generate male, female, or random elf names with meanings. Perfect for D&D, LOTR, and fantasy writing.">
+    <meta name="keywords" content="name generator for elves, elven name generator, elf name maker, fantasy elf names, dnd elf names, lord of the rings elf names, elf character names, elvish name creator">
+    <meta name="author" content="Elven Name Generator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chinesenamegeneratormale.com/elves/">
+    <title>Name Generator for Elves | Fantasy Elven Name Creator with Meanings</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Name Generator for Elves | Fantasy Elven Name Creator">
+    <meta property="og:description" content="Generate authentic elven names for your fantasy characters. Male, female, or random elf names with meanings.">
+    <meta property="og:url" content="https://chinesenamegeneratormale.com/elves/">
+    <meta property="og:site_name" content="Name Generator for Elves">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Name Generator for Elves">
+    <meta name="twitter:description" content="Generate authentic elven names for your fantasy characters.">
+    
+    <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Name Generator for Elves",
+        "url": "https://chinesenamegeneratormale.com/elves/",
+        "description": "Generate authentic elven names for fantasy characters, D&D campaigns, and creative writing.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f5f0e7 0%, #e8dfd3 100%);
+            color: #2c2722; 
+            line-height: 1.6; 
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+        
+        .hero { 
+            text-align: center; 
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(255,252,245,0.94);
+            border-radius: 1.8rem;
+            border: 1px solid rgba(230,200,170,0.5);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.12);
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(120deg, #b4653a, #d68b4c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+        }
+        .hero p { 
+            color: #5a4a3a; 
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .mode-btn {
+            padding: 0.6rem 1.5rem;
+            background: #fef7ed;
+            border: 1px solid #d9c7b0;
+            border-radius: 60px;
+            color: #7a5a44;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .mode-btn:hover {
+            background: #f5e6d3;
+            transform: translateY(-2px);
+        }
+        .mode-btn.active {
+            background: #c28142;
+            border-color: #a45d2a;
+            color: white;
+            box-shadow: 0 6px 12px rgba(160,85,30,0.15);
+        }
+        
+        .generate-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .generate-btn {
+            padding: 0.9rem 2.5rem;
+            background: #2c3e2f;
+            border: none;
+            border-radius: 60px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 12px rgba(44,62,47,0.2);
+        }
+        .generate-btn:hover {
+            background: #1f2e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44,62,47,0.3);
+        }
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .results-section {
+            background: rgba(255,252,245,0.94);
+            border-radius: 1.8rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(230,200,170,0.5);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.12);
+            margin-bottom: 2rem;
+        }
+        .results-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3rem;
+            color: #8b5a2e;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .name-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #f3e5d5;
+            transition: all 0.2s ease;
+        }
+        .name-card:hover {
+            background: #fff;
+            border-color: #e0bc92;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .name-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3rem;
+            color: #a55117;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .name-gender {
+            font-size: 0.8rem;
+            color: #c28142;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        .name-meaning {
+            font-size: 0.75rem;
+            color: #5e4b38;
+            font-style: italic;
+        }
+        
+        .info-section {
+            background: #fef6ed;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e9d9c6;
+            margin-bottom: 1.5rem;
+        }
+        .info-section h2 {
+            font-family: 'Noto Serif SC', serif;
+            color: #8b5a2e;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #c28142;
+            padding-left: 0.8rem;
+        }
+        .info-section p {
+            color: #5a4a3a;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+        .info-section ul {
+            margin-left: 1.5rem;
+            color: #5a4a3a;
+            margin-bottom: 1rem;
+        }
+        .info-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9d9c6;
+        }
+        footer p {
+            font-size: 0.85rem;
+            color: #a0876b;
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: #c28142;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 640px) {
+            body { padding: 1rem 0.75rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 1.5rem; }
+            .mode-toggle { gap: 0.5rem; }
+            .mode-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .names-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .generate-btn { padding: 0.7rem 2rem; font-size: 1rem; }
+            .results-section { padding: 1rem; }
+            .info-section { padding: 1rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Name Generator for Elves</h1>
+        <p>Create authentic elven names for your fantasy characters, D&D campaigns, or creative writing. This <strong>name generator for elves</strong> produces beautiful, meaningful names inspired by Tolkien and fantasy lore. Perfect for worldbuilding and role-playing games.</p>
+    </div>
+    
+    <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="random">🎲 Random Names</button>
+        <button class="mode-btn" data-mode="male">♂ Male Elves</button>
+        <button class="mode-btn" data-mode="female">♀ Female Elves</button>
+    </div>
+    
+    <div class="generate-section">
+        <button class="generate-btn" onclick="generateNames()">✨ Generate 16 Elven Names</button>
+    </div>
+    
+    <div class="results-section">
+        <h2 class="results-title">Your Generated Elven Names</h2>
+        <div class="names-grid" id="namesGrid">
+            <p style="text-align:center;color:#888;grid-column:1/-1;">Click the button above to generate elven names</p>
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h2>About This Name Generator for Elves</h2>
+        <p>This <strong>name generator for elves</strong> creates authentic-sounding elven names perfect for fantasy characters. Whether you need names for:</p>
+        <ul>
+            <li>Dungeons & Dragons elf characters</li>
+            <li>Lord of the Rings inspired stories</li>
+            <li>Fantasy novels and creative writing projects</li>
+            <li>Role-playing games and worldbuilding</li>
+            <li>Video game character creation</li>
+        </ul>
+        <p>Each generated name comes with a meaning inspired by elven culture, nature, and magic. Our <strong>name generator for elves</strong> offers male, female, and random options to suit your character's identity.</p>
+    </div>
+    
+    <div class="info-section">
+        <h2>Elven Naming Traditions</h2>
+        <p>Elven names often reflect their deep connection to nature, stars, and ancient wisdom. Traditional elven names from Tolkien's works and modern fantasy follow patterns that sound melodic and ethereal. This <strong>name generator for elves</strong> draws from these rich traditions.</p>
+        <p>Male elven names often end in consonants or masculine suffixes like -on, -or, -ion. Female elven names frequently end in -iel, -ith, -a, or -ien, giving them a graceful, flowing quality that the name generator for elves captures perfectly.</p>
+    </div>
+    
+    <div class="info-section">
+        <h2>How to Use This Name Generator for Elves</h2>
+        <p>Using this <strong>name generator for elves</strong> is simple:</p>
+        <ul>
+            <li><strong>Random Mode:</strong> Get a mix of male and female elven names</li>
+            <li><strong>Male Mode:</strong> Generate exclusively male elf names</li>
+            <li><strong>Female Mode:</strong> Generate exclusively female elf names</li>
+        </ul>
+        <p>Each click generates 16 unique names with their meanings. The <strong>name generator for elves</strong> ensures no duplicates in each batch, giving you fresh options every time.</p>
+    </div>
+    
+    <footer>
+        <p>© 2026 Name Generator for Elves. All rights reserved.</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/blog.html">Blog</a>
+            <a href="/list-of-names-generator.html">Name Generators</a>
+        </p>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
