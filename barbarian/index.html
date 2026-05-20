@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barbarian Name Generator - Create powerful barbarian names for your fantasy characters. Generate male, female, or random barbarian names with meanings. Perfect for D&D, RPGs, and fantasy writing.">
+    <meta name="keywords" content="barbarian name generator, barbarian names, fantasy names, D&D names, warrior names, strong names, RPG names">
+    <meta name="author" content="Barbarian Name Generator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chinesenamegeneratormale.com/barbarian/">
+    <title>Barbarian Name Generator | Powerful Warrior Names</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Barbarian Name Generator | Powerful Warrior Names">
+    <meta property="og:description" content="Generate powerful barbarian names for fantasy characters. Male, female, or random names with meanings.">
+    <meta property="og:url" content="https://chinesenamegeneratormale.com/barbarian/">
+    <meta property="og:site_name" content="Barbarian Name Generator">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Barbarian Name Generator">
+    <meta name="twitter:description" content="Generate powerful barbarian names for your fantasy characters.">
+    
+    <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Barbarian Name Generator",
+        "url": "https://chinesenamegeneratormale.com/barbarian/",
+        "description": "Generate powerful barbarian names for fantasy characters, D&D campaigns, and creative writing.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f5f0e7 0%, #e8dfd3 100%);
+            color: #2c2722; 
+            line-height: 1.6; 
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+        
+        .hero { 
+            text-align: center; 
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(255,252,245,0.94);
+            border-radius: 1.8rem;
+            border: 1px solid rgba(230,200,170,0.5);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.12);
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            background: linear-gradient(120deg, #b4653a, #d68b4c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+        }
+        .hero p { 
+            color: #5a4a3a; 
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .mode-btn {
+            padding: 0.6rem 1.5rem;
+            background: #fef7ed;
+            border: 1px solid #d9c7b0;
+            border-radius: 60px;
+            color: #7a5a44;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .mode-btn:hover {
+            background: #f5e6d3;
+            transform: translateY(-2px);
+        }
+        .mode-btn.active {
+            background: #c28142;
+            border-color: #a45d2a;
+            color: white;
+            box-shadow: 0 6px 12px rgba(160,85,30,0.15);
+        }
+        
+        .generate-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .generate-btn {
+            padding: 0.9rem 2.5rem;
+            background: #2c3e2f;
+            border: none;
+            border-radius: 60px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 12px rgba(44,62,47,0.2);
+        }
+        .generate-btn:hover {
+            background: #1f2e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44,62,47,0.3);
+        }
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .results-section {
+            background: rgba(255,252,245,0.94);
+            border-radius: 1.8rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(230,200,170,0.5);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.12);
+            margin-bottom: 2rem;
+        }
+        .results-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: #8b5a2e;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .name-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #f3e5d5;
+            transition: all 0.2s ease;
+        }
+        .name-card:hover {
+            background: #fff;
+            border-color: #e0bc92;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .name-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: #a55117;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .name-gender {
+            font-size: 0.8rem;
+            color: #c28142;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        .name-meaning {
+            font-size: 0.75rem;
+            color: #5e4b38;
+            font-style: italic;
+        }
+        
+        .info-section {
+            background: #fef6ed;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e9d9c6;
+            margin-bottom: 1.5rem;
+        }
+        .info-section h2 {
+            font-family: 'Merriweather', serif;
+            color: #8b5a2e;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #c28142;
+            padding-left: 0.8rem;
+        }
+        .info-section p {
+            color: #5a4a3a;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+        .info-section ul {
+            margin-left: 1.5rem;
+            color: #5a4a3a;
+            margin-bottom: 1rem;
+        }
+        .info-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9d9c6;
+        }
+        footer p {
+            font-size: 0.85rem;
+            color: #a0876b;
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: #c28142;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 1.5rem 1rem; }
+            .container { padding: 0 0.5rem; }
+            .hero { padding: 1.5rem 1rem; margin-bottom: 1.5rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 0.9rem; }
+            .mode-toggle { gap: 0.5rem; }
+            .mode-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; flex: 1; min-width: 90px; }
+            .generate-section { margin-bottom: 1.5rem; }
+            .generate-btn { width: 100%; padding: 0.8rem 1.5rem; font-size: 1rem; }
+            .results-section { padding: 1rem; margin-bottom: 1.5rem; }
+            .results-title { font-size: 1.1rem; margin-bottom: 1rem; }
+            .names-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; }
+            .name-card { padding: 0.75rem; }
+            .name-text { font-size: 1.1rem; }
+            .name-gender { font-size: 0.7rem; }
+            .name-meaning { font-size: 0.65rem; }
+            .info-section { padding: 1rem; margin-bottom: 1rem; }
+            .info-section h2 { font-size: 1.1rem; padding-left: 0.6rem; }
+            .info-section p { font-size: 0.85rem; }
+            .info-section ul { margin-left: 1.2rem; }
+            .info-section li { font-size: 0.85rem; margin-bottom: 0.4rem; }
+            footer { padding-top: 1rem; margin-top: 1.5rem; }
+            footer p { font-size: 0.75rem; }
+        }
+        
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.75rem; }
+            .hero { padding: 1rem 0.75rem; border-radius: 1.2rem; }
+            .hero h1 { font-size: 1.4rem; }
+            .hero p { font-size: 0.85rem; line-height: 1.5; }
+            .mode-toggle { flex-direction: column; gap: 0.5rem; }
+            .mode-btn { width: 100%; padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .generate-btn { padding: 0.7rem 1rem; font-size: 0.95rem; }
+            .results-section { padding: 0.75rem; border-radius: 1.2rem; }
+            .names-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; minmax: auto; }
+            .name-card { padding: 0.6rem; border-radius: 0.8rem; }
+            .name-text { font-size: 1rem; margin-bottom: 0.3rem; }
+            .name-gender { font-size: 0.65rem; margin-bottom: 0.2rem; }
+            .name-meaning { font-size: 0.6rem; }
+            .info-section { padding: 0.75rem; border-radius: 1rem; }
+            .info-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+            .info-section p { font-size: 0.8rem; margin-bottom: 0.6rem; }
+            footer { margin-top: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Barbarian Name Generator</h1>
+        <p>Need a powerful barbarian name for your D&D character or fantasy story? Our <strong>barbarian name generator</strong> has you covered! Get male, female, or random barbarian names with strong meanings. Perfect for warriors, berserkers, and fierce fighters. Hit generate and get 16 awesome names instantly!</p>
+    </div>
+    
+    <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="random">🎲 Random Names</button>
+        <button class="mode-btn" data-mode="male">⚔️ Male Barbarians</button>
+        <button class="mode-btn" data-mode="female">🛡️ Female Barbarians</button>
+    </div>
+    
+    <div class="generate-section">
+        <button class="generate-btn" onclick="generateNames()">⚡ Generate 16 Barbarian Names</button>
+    </div>
+    
+    <div class="results-section">
+        <h2 class="results-title">Your Barbarian Names</h2>
+        <div class="names-grid" id="namesGrid">
+            <p style="text-align:center;color:#888;grid-column:1/-1;">Click the button above to generate barbarian names</p>
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h2>About This Barbarian Name Generator</h2>
+        <p>Looking for a solid <strong>barbarian name generator</strong>? You're in the right spot. We've got tons of powerful-sounding names inspired by Norse, Celtic, and fantasy warrior traditions. Whether you need a name for a D&D barbarian, a Conan-style hero, or just want to add some fierceness to your story, this <strong>barbarian name generator</strong> has what you need.</p>
+        <ul>
+            <li>Dungeons & Dragons barbarian characters</li>
+            <li>Fantasy novels and epic stories</li>
+            <li>Role-playing games and worldbuilding</li>
+            <li>Warrior-themed writing projects</li>
+            <li>Tabletop RPG campaigns</li>
+        </ul>
+        <p>Every name comes with a meaning, so you can pick one that fits your character's personality. Whether they're a raging berserker or a wise warrior-chief, our <strong>barbarian name generator</strong> has options for every vibe.</p>
+    </div>
+    
+    <div class="info-section">
+        <h2>Barbarian Naming Tips</h2>
+        <p>Barbarians are all about strength, courage, and primal power. When picking a name from our <strong>barbarian name generator</strong>, think about your character's background:</p>
+        <ul>
+            <li><strong>Northern barbarians:</strong> Think harsh consonants, references to snow, wolves, and battle</li>
+            <li><strong>Tribal warriors:</strong> Names that evoke nature, strength, and heritage</li>
+            <li><strong>Berserkers:</strong> Names that suggest rage, fury, and unstoppable power</li>
+        </ul>
+        <p>Our <strong>barbarian name generator</strong> takes inspiration from ancient warrior cultures, adding a fantasy twist to create names that sound both authentic and epic.</p>
+    </div>
+    
+    <div class="info-section">
+        <h2>How to Use This Barbarian Name Generator</h2>
+        <p>Super easy - just pick what type of names you want and hit generate. Each click gives you 16 unique names from our database of over 300 options. No repeats, no boring stuff. Just pure barbarian power.</p>
+        <ul>
+            <li><strong>Random Mode:</strong> Mix of male and female barbarian names</li>
+            <li><strong>Male Mode:</strong> Guy barbarian names only</li>
+            <li><strong>Female Mode:</strong> Gal barbarian names only</li>
+        </ul>
+        <p>Whether you're naming a character for a game, a story, or just for fun, our <strong>barbarian name generator</strong> makes it quick and easy. Give it a try!</p>
+    </div>
+    
+    <footer>
+        <p>© 2026 Barbarian Name Generator. All rights reserved.</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/blog.html">Blog</a>
+            <a href="/list-of-names-generator.html">List of Names Generator</a>
+        </p>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TM99ZRRCRX');
+</script>
+</body>
+</html>
