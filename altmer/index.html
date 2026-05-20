@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Altmer Name Generator - Create elegant High Elf names inspired by The Elder Scrolls. Perfect for Skyrim, Oblivion, and fantasy role-playing. Generate male, female, or random Altmer names with meanings.">
+    <meta name="keywords" content="altmer name generator, high elf name generator, elder scrolls name generator, skyrim elf names, altmer names, high elf names, elven name generator">
+    <meta name="author" content="Altmer Name Generator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chinesenamegeneratormale.com/altmer/">
+    <title>Altmer Name Generator | High Elf Name Creator</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Altmer Name Generator | High Elf Name Creator">
+    <meta property="og:description" content="Generate elegant Altmer names for your Elder Scrolls characters. Perfect for Skyrim and fantasy RPGs.">
+    <meta property="og:url" content="https://chinesenamegeneratormale.com/altmer/">
+    <meta property="og:site_name" content="Altmer Name Generator">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Altmer Name Generator">
+    <meta name="twitter:description" content="Generate elegant Altmer names for your Elder Scrolls characters.">
+    
+    <link rel="icon" type="image/x-icon" href="https://chinesenamegeneratormale.com/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Altmer Name Generator",
+        "url": "https://chinesenamegeneratormale.com/altmer/",
+        "description": "Generate elegant Altmer (High Elf) names for Elder Scrolls characters and fantasy role-playing.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f5f0e7 0%, #e8dfd3 100%);
+            color: #2c2722; 
+            line-height: 1.6; 
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+        
+        .hero { 
+            text-align: center; 
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(255,252,245,0.94);
+            border-radius: 1.8rem;
+            border: 1px solid rgba(230,200,170,0.5);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.12);
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            background: linear-gradient(120deg, #b4653a, #d68b4c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+        }
+        .hero p { 
+            color: #5a4a3a; 
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .mode-btn {
+            padding: 0.6rem 1.5rem;
+            background: #fef7ed;
+            border: 1px solid #d9c7b0;
+            border-radius: 60px;
+            color: #7a5a44;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .mode-btn:hover {
+            background: #f5e6d3;
+            transform: translateY(-2px);
+        }
+        .mode-btn.active {
+            background: #c28142;
+            border-color: #a45d2a;
+            color: white;
+            box-shadow: 0 6px 12px rgba(160,85,30,0.15);
+        }
+        
+        .generate-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .generate-btn {
+            padding: 0.9rem 2.5rem;
+            background: #2c3e2f;
+            border: none;
+            border-radius: 60px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 12px rgba(44,62,47,0.2);
+        }
+        .generate-btn:hover {
+            background: #1f2e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44,62,47,0.3);
+        }
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .results-section {
+            background: rgba(255,252,245,0.94);
+            border-radius: 1.8rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(230,200,170,0.5);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.12);
+            margin-bottom: 2rem;
+        }
+        .results-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: #8b5a2e;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .name-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #f3e5d5;
+            transition: all 0.2s ease;
+        }
+        .name-card:hover {
+            background: #fff;
+            border-color: #e0bc92;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .name-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: #a55117;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .name-gender {
+            font-size: 0.8rem;
+            color: #c28142;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        .name-meaning {
+            font-size: 0.75rem;
+            color: #5e4b38;
+            font-style: italic;
+        }
+        
+        .info-section {
+            background: #fef6ed;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e9d9c6;
+            margin-bottom: 1.5rem;
+        }
+        .info-section h2 {
+            font-family: 'Merriweather', serif;
+            color: #8b5a2e;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #c28142;
+            padding-left: 0.8rem;
+        }
+        .info-section p {
+            color: #5a4a3a;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+        .info-section ul {
+            margin-left: 1.5rem;
+            color: #5a4a3a;
+            margin-bottom: 1rem;
+        }
+        .info-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9d9c6;
+        }
+        footer p {
+            font-size: 0.85rem;
+            color: #a0876b;
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: #c28142;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 1.5rem 1rem; }
+            .container { padding: 0 0.5rem; }
+            .hero { padding: 1.5rem 1rem; margin-bottom: 1.5rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 0.9rem; }
+            .mode-toggle { gap: 0.5rem; }
+            .mode-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; flex: 1; min-width: 90px; }
+            .generate-section { margin-bottom: 1.5rem; }
+            .generate-btn { width: 100%; padding: 0.8rem 1.5rem; font-size: 1rem; }
+            .results-section { padding: 1rem; margin-bottom: 1.5rem; }
+            .results-title { font-size: 1.1rem; margin-bottom: 1rem; }
+            .names-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; }
+            .name-card { padding: 0.75rem; }
+            .name-text { font-size: 1.1rem; }
+            .name-gender { font-size: 0.7rem; }
+            .name-meaning { font-size: 0.65rem; }
+            .info-section { padding: 1rem; margin-bottom: 1rem; }
+            .info-section h2 { font-size: 1.1rem; padding-left: 0.6rem; }
+            .info-section p { font-size: 0.85rem; }
+            .info-section ul { margin-left: 1.2rem; }
+            .info-section li { font-size: 0.85rem; margin-bottom: 0.4rem; }
+            footer { padding-top: 1rem; margin-top: 1.5rem; }
+            footer p { font-size: 0.75rem; }
+        }
+        
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.75rem; }
+            .hero { padding: 1rem 0.75rem; border-radius: 1.2rem; }
+            .hero h1 { font-size: 1.4rem; }
+            .hero p { font-size: 0.85rem; line-height: 1.5; }
+            .mode-toggle { flex-direction: column; gap: 0.5rem; }
+            .mode-btn { width: 100%; padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .generate-btn { padding: 0.7rem 1rem; font-size: 0.95rem; }
+            .results-section { padding: 0.75rem; border-radius: 1.2rem; }
+            .names-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; minmax: auto; }
+            .name-card { padding: 0.6rem; border-radius: 0.8rem; }
+            .name-text { font-size: 1rem; margin-bottom: 0.3rem; }
+            .name-gender { font-size: 0.65rem; margin-bottom: 0.2rem; }
+            .name-meaning { font-size: 0.6rem; }
+            .info-section { padding: 0.75rem; border-radius: 1rem; }
+            .info-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+            .info-section p { font-size: 0.8rem; margin-bottom: 0.6rem; }
+            footer { margin-top: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Altmer Name Generator</h1>
+        <p>Looking for an <strong>altmer name generator</strong> for your Elder Scrolls character? Our <strong>altmer name generator</strong> creates elegant High Elf names inspired by Tamriel's noble elven race. Perfect for Skyrim, Oblivion, or any fantasy RPG. Generate 16 names at a time - male, female, or random!</p>
+    </div>
+    
+    <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="random">🎲 Random</button>
+        <button class="mode-btn" data-mode="male">♂ Male Altmer</button>
+        <button class="mode-btn" data-mode="female">♀ Female Altmer</button>
+    </div>
+    
+    <div class="generate-section">
+        <button class="generate-btn" onclick="generateNames()">🌙 Generate 16 Altmer Names</button>
+    </div>
+    
+    <div class="results-section">
+        <h2 class="results-title">Your Elegant Altmer Names</h2>
+        <div class="names-grid" id="namesGrid">
+            <p style="text-align:center;color:#888;grid-column:1/-1;">Click the button above to generate your altmer names</p>
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h2>About Our Altmer Name Generator</h2>
+        <p>The Altmer, also known as High Elves, are the proud and ancient elven race of Summerset Isle in The Elder Scrolls universe. Our <strong>altmer name generator</strong> captures their elegant and refined naming conventions.</p>
+        <p>Perfect for:</p>
+        <ul>
+            <li>Skyrim character creation</li>
+            <li>Oblivion and Morrowind role-playing</li>
+            <li>Fantasy novels set in Tamriel</li>
+            <li>D&D campaigns with elven characters</li>
+            <li>Any high fantasy worldbuilding</li>
+        </ul>
+    </div>
+    
+    <div class="info-section">
+        <h2>Altmer Naming Traditions</h2>
+        <p>Altmer names follow distinct elven linguistic patterns. Our <strong>altmer name generator</strong> incorporates these authentic conventions:</p>
+        <ul>
+            <li><strong>Fluid Sounds:</strong> Soft vowels and flowing consonants</li>
+            <li><strong>Elven Roots:</strong> Inspired by Ayleidoon and Aldmeri languages</li>
+            <li><strong>Male Suffixes:</strong> -on, -or, -ion, -yn, -thil</li>
+            <li><strong>Female Suffixes:</strong> -el, -eth, -a, -ien, -wen</li>
+            <li><strong>Nature Themes:</strong> Sun, moon, stars, light, magic</li>
+        </ul>
+        <p>Each name has a meaning that reflects the Altmer's connection to the divine and their mastery of magic.</p>
+    </div>
+    
+    <div class="info-section">
+        <h2>How to Use This Altmer Name Generator</h2>
+        <p>It's simple - just pick your mode and generate:</p>
+        <ul>
+            <li><strong>Random Mode:</strong> Mix of male and female Altmer names</li>
+            <li><strong>Male Mode:</strong> Noble male High Elf names</li>
+            <li><strong>Female Mode:</strong> Graceful female High Elf names</li>
+        </ul>
+        <p>Hit the generate button and get 16 unique names every time. Perfect for finding that perfect name for your next elven character.</p>
+    </div>
+    
+    <footer>
+        <p>© 2026 Altmer Name Generator. All rights reserved.</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/blog.html">Blog</a>
+            <a href="/list-of-names-generator.html">List of Names Generator</a>
+        </p>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TM99ZRRCRX');
+</script>
+</body>
+</html>
