@@ -180,12 +180,25 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
     }
 
     let currentAudio = null;
+    let voicesLoaded = false;
+    if ('speechSynthesis' in window) {
+        speechSynthesis.getVoices();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = () => { voicesLoaded = true; };
+        } else {
+            voicesLoaded = true;
+        }
+    }
     function playAudio(chineseName, pinyin, btn) {
         if (currentAudio) { currentAudio.pause(); currentAudio = null; }
         if ('speechSynthesis' in window) {
+            speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(chineseName);
             utterance.lang = 'zh-CN';
             utterance.rate = 0.7;
+            const voices = speechSynthesis.getVoices();
+            const zhVoice = voices.find(v => v.lang.startsWith('zh')) || voices[0];
+            if (zhVoice) utterance.voice = zhVoice;
             utterance.onstart = () => btn.classList.add('playing');
             utterance.onend = () => btn.classList.remove('playing');
             utterance.onerror = () => btn.classList.remove('playing');
@@ -803,3 +816,46 @@ Rules: Based on surname "${surname}" and meaning category "${label}" and style "
         const meaningStyle = document.querySelector('#meaningStyleGroup .style-radio.selected')?.dataset.meaningstyle || 'single';
         renderMeaningDefault(meaningSurname, meaningType, meaningStyle);
     });
+
+    function shareTo(platform) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('Chinese Name Generator Male - Free English to Chinese Male Name Generator');
+        let shareUrl = '';
+        
+        switch(platform) {
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
+                break;
+            case 'x':
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                break;
+            case 'pinterest':
+                shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${title}`;
+                break;
+            case 'reddit':
+                shareUrl = `https://reddit.com/submit?url=${url}&title=${title}`;
+                break;
+            default:
+                return;
+        }
+        
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+
+    async function copyLink() {
+        const url = window.location.href;
+        try {
+            await navigator.clipboard.writeText(url);
+            const copyBtn = document.querySelector('.copy-btn');
+            const originalText = copyBtn.querySelector('.social-text').textContent;
+            copyBtn.querySelector('.social-text').textContent = 'Copied!';
+            copyBtn.style.background = '#22c55e';
+            setTimeout(() => {
+                copyBtn.querySelector('.social-text').textContent = originalText;
+                copyBtn.style.background = '#4a5568';
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            alert('Copy failed. Please copy manually: ' + url);
+        }
+    }
