@@ -127,6 +127,66 @@
         .loading-text { display: flex; align-items: center; gap: 6px; color: #ad8867; font-weight: 500; font-size: 0.9rem; }
         .api-note { background: #f9efdf; border-radius: 20px; padding: 0.5rem 0.8rem; margin-top: 0.8rem; font-size: 0.7rem; color: #a06639; text-align: center; }
         .cors-warning { background: #ffe6d5; border-left: 4px solid #d9534f; padding: 0.5rem 0.8rem; border-radius: 1rem; margin: 0.5rem 0; font-size: 0.7rem; color: #b1421a; font-weight: 500; }
+        .social-share-section {
+            margin-top: 2rem;
+            background: #fef6ed;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            border: 1px solid #e9d9c6;
+        }
+        .social-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #8b5a2e;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 1rem;
+            border: none;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+        }
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .facebook-btn { background: #3b5998; }
+        .facebook-btn:hover { background: #2d4373; }
+        .x-btn { background: #14171a; }
+        .x-btn:hover { background: #0d0f11; }
+        .pinterest-btn { background: #bd081c; }
+        .pinterest-btn:hover { background: #9a0616; }
+        .reddit-btn { background: #ff4500; }
+        .reddit-btn:hover { background: #cc3700; }
+        .copy-btn { background: #4a5568; }
+        .copy-btn:hover { background: #2d3748; }
+        .social-icon {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .social-text {
+            font-size: 0.82rem;
+        }
+        @media (max-width: 640px) {
+            .social-buttons { gap: 0.5rem; }
+            .social-btn { padding: 0.4rem 0.8rem; font-size: 0.78rem; }
+            .social-text { display: none; }
+        }
         .method-section { margin-top: 2rem; background: #fef6ed; border-radius: 1.5rem; padding: 1.5rem 1.8rem; border: 1px solid #e9d9c6; }
         .method-section h2 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; font-weight: 600; color: #8b5a2e; margin-bottom: 1rem; border-left: 4px solid #c28142; padding-left: 0.8rem; }
         .method-section p { color: #5a4a3a; line-height: 1.5; margin-bottom: 0.6rem; font-size: 0.9rem; }
