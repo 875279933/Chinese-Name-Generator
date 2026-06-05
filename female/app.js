@@ -180,25 +180,12 @@ Rules: Based on birth year ${birthYear}, birth month ${birthMonth}, zodiac ${zod
     }
 
     let currentAudio = null;
-    let voicesLoaded = false;
-    if ('speechSynthesis' in window) {
-        speechSynthesis.getVoices();
-        if (speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = () => { voicesLoaded = true; };
-        } else {
-            voicesLoaded = true;
-        }
-    }
     function playAudio(chineseName, pinyin, btn) {
         if (currentAudio) { currentAudio.pause(); currentAudio = null; }
         if ('speechSynthesis' in window) {
-            speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(chineseName);
             utterance.lang = 'zh-CN';
             utterance.rate = 0.7;
-            const voices = speechSynthesis.getVoices();
-            const zhVoice = voices.find(v => v.lang.startsWith('zh')) || voices[0];
-            if (zhVoice) utterance.voice = zhVoice;
             utterance.onstart = () => btn.classList.add('playing');
             utterance.onend = () => btn.classList.remove('playing');
             utterance.onerror = () => btn.classList.remove('playing');

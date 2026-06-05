@@ -41,6 +41,8 @@
             .expertise-section { padding: 1rem 1.1rem; }
             footer { padding-top: 1rem; }
             footer a { display: block; margin: 0.4rem 0; }
+            footer .footer-links { flex-direction: column; align-items: center; gap: 0.4rem; }
+            footer select { margin-bottom: 0.8rem; }
             .name-card { padding: 0.9rem 1rem; border-radius: 1rem; }
             .btn-generate { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
             input, select { padding: 0.6rem 0.9rem; font-size: 0.9rem; }
@@ -221,4 +223,23 @@
         footer p { font-size: 0.85rem; color: #a3876b; margin-bottom: 0.5rem; }
         footer a { color: #c28142; text-decoration: none; margin: 0 0.8rem; font-size: 0.85rem; }
         footer a:hover { text-decoration: underline; }
+        footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1rem; }
+        footer .footer-links a { margin: 0; }
+        footer select { margin-bottom: 0.5rem; }
         .audio-btn.playing .audio-icon { color: white; }
+        .related-tools-section { margin-top: 1.5rem; background: #fef6ed; border-radius: 1.5rem; padding: 1.5rem 1.8rem; border: 1px solid #e9d9c6; }
+        .related-tools-section h2 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; font-weight: 600; color: #8b5a2e; margin-bottom: 1rem; border-left: 4px solid #c28142; padding-left: 0.8rem; }
+        .related-tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+        .related-tool-card { background: #fff9f0; border-radius: 1rem; padding: 1rem; border: 1px solid #e9d9c6; text-decoration: none; transition: all 0.2s ease; display: block; }
+        .related-tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); border-color: #d4a76a; }
+        .tool-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .tool-name { font-family: 'Noto Serif SC', serif; font-size: 0.9rem; color: #a55117; margin-bottom: 0.3rem; font-weight: 600; }
+        .tool-desc { font-size: 0.78rem; color: #5a4a3a; line-height: 1.4; margin: 0; }
+        @media (max-width: 640px) {
+            .related-tools-section { padding: 1rem 1.1rem; }
+            .related-tools-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; }
+            .related-tool-card { padding: 0.8rem; }
+            .tool-icon { font-size: 1.6rem; }
+            .tool-name { font-size: 0.82rem; }
+            .tool-desc { font-size: 0.72rem; }
+        }
