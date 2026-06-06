@@ -220,6 +220,59 @@
         .info-section li {
             margin-bottom: 0.5rem;
         }
+
+        .related-tools-section {
+            background: #fffaf2;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #ead8be;
+            margin-bottom: 1.5rem;
+        }
+        .related-tools-section h2 {
+            font-family: 'Merriweather', serif;
+            color: #6b4a26;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #c28142;
+            padding-left: 0.8rem;
+        }
+        .related-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .related-tool-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #f3e5d5;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: block;
+        }
+        .related-tool-card:hover {
+            background: #fff;
+            border-color: #e0bc92;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .tool-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-name {
+            font-family: 'Merriweather', serif;
+            font-size: 0.95rem;
+            color: #a55117;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .tool-desc {
+            font-size: 0.78rem;
+            color: #5a4a3a;
+            line-height: 1.4;
+            margin: 0;
+        }
         
         footer {
             text-align: center;
@@ -284,6 +337,13 @@
             .info-section { padding: 0.75rem; border-radius: 1rem; }
             .info-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
             .info-section p { font-size: 0.8rem; margin-bottom: 0.6rem; }
+            .related-tools-section { padding: 1rem; border-radius: 1rem; margin-bottom: 1rem; }
+            .related-tools-section h2 { font-size: 1.1rem; padding-left: 0.6rem; }
+            .related-tools-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .related-tool-card { padding: 0.6rem; }
+            .tool-icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+            .tool-name { font-size: 0.78rem; }
+            .tool-desc { font-size: 0.65rem; }
             footer { margin-top: 1rem; }
         }
     </style>
@@ -308,7 +368,86 @@
     <div class="results-section">
         <h2 class="results-title">Your Generated Sith Names</h2>
         <div class="names-grid" id="namesGrid">
-            <p style="text-align:center;color:#888;grid-column:1/-1;">Click the button above to generate sith names</p>
+            <div class="name-card">
+                <div class="name-text">Darth Malachor</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Dark destroyer</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Talia</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Dark blossom</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Vexis</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Shadow of vengeance</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Nyssa</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Shadow queen</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Kaelus</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Lord of pain</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Vespera</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Evening darkness</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Nihilus</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Emptiness incarnate</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Selene</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Dark moon</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Bane</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Bringer of ruin</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Morgana</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Dark sorceress</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Plagueis</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Master of corruption</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Lilith</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Night demon</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Sidious</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Hidden master</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Ravenna</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Dark raven</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Vader</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Dark father</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darth Seraphina</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Fallen angel</div>
+            </div>
         </div>
     </div>
     
@@ -341,7 +480,78 @@
         </ul>
         <p>Hit generate and you get 16 unique names with meanings. No repeats in the same batch, so you always get fresh options.</p>
     </div>
-    
+
+    <div class="related-tools-section">
+        <h2>Related Tools</h2>
+        <div class="related-tools-grid">
+            <a href="/female/" class="related-tool-card">
+                <div class="tool-icon">🌸</div>
+                <h3 class="tool-name">Chinese Name Generator Female</h3>
+                <p class="tool-desc">Create beautiful Chinese female names with meanings and audio pronunciation.</p>
+            </a>
+            <a href="/skyrim/" class="related-tool-card">
+                <div class="tool-icon">🗡️</div>
+                <h3 class="tool-name">Skyrim Nord Name Generator</h3>
+                <p class="tool-desc">Generate authentic Skyrim Nord names for your Dragonborn character.</p>
+            </a>
+            <a href="/necromancer/" class="related-tool-card">
+                <div class="tool-icon">💀</div>
+                <h3 class="tool-name">Necromancer Name Generator</h3>
+                <p class="tool-desc">Generate dark necromancer names for fantasy characters and D&amp;D.</p>
+            </a>
+            <a href="/dark/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Dark Souls Name Generator</h3>
+                <p class="tool-desc">Generate haunting Dark Souls-style names for fantasy characters.</p>
+            </a>
+            <a href="/altmer/" class="related-tool-card">
+                <div class="tool-icon">✨</div>
+                <h3 class="tool-name">Altmer Name Generator</h3>
+                <p class="tool-desc">Generate elegant High Elf names inspired by The Elder Scrolls.</p>
+            </a>
+            <a href="/duty/" class="related-tool-card">
+                <div class="tool-icon">🎮</div>
+                <h3 class="tool-name">Call of Duty Name Generator</h3>
+                <p class="tool-desc">Generate epic COD-style usernames for gaming profiles and clans.</p>
+            </a>
+            <a href="/werewolf/" class="related-tool-card">
+                <div class="tool-icon">🐺</div>
+                <h3 class="tool-name">Werewolf Name Generator</h3>
+                <p class="tool-desc">Generate fierce werewolf names for fantasy characters and stories.</p>
+            </a>
+            <a href="/barbarian/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Barbarian Name Generator</h3>
+                <p class="tool-desc">Generate powerful barbarian names for D&amp;D warriors and fighters.</p>
+            </a>
+            <a href="/leprechaun/" class="related-tool-card">
+                <div class="tool-icon">🍀</div>
+                <h3 class="tool-name">Leprechaun Name Generator</h3>
+                <p class="tool-desc">Generate magical leprechaun names for Irish folklore and D&amp;D.</p>
+            </a>
+            <a href="/psn/" class="related-tool-card">
+                <div class="tool-icon">🎮</div>
+                <h3 class="tool-name">Cool PSN Names Generator</h3>
+                <p class="tool-desc">Create awesome PlayStation Network names for your gaming profile.</p>
+            </a>
+            <a href="/elves/" class="related-tool-card">
+                <div class="tool-icon">✨</div>
+                <h3 class="tool-name">Elven Name Generator</h3>
+                <p class="tool-desc">Generate mystical elven names for D&amp;D, LOTR, and role-playing games.</p>
+            </a>
+            <a href="/nightelf/" class="related-tool-card">
+                <div class="tool-icon">🌙</div>
+                <h3 class="tool-name">Night Elf Name Generator</h3>
+                <p class="tool-desc">Generate mystical night elf names for World of Warcraft and RPGs.</p>
+            </a>
+            <a href="/orc/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Orc Name Generator</h3>
+                <p class="tool-desc">Create fierce orc names for Warcraft, LOTR, and RPG characters.</p>
+            </a>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 Sith Name Generator. All rights reserved.</p>
         <p>
@@ -353,6 +563,20 @@
 </div>
 
 <script src="app.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('#namesGrid .name-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 40);
+        });
+    });
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
 <script>

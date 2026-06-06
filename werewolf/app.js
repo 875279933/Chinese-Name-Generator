@@ -368,4 +368,3 @@ function generateNames() {
     });
 }
 
-generateNames();

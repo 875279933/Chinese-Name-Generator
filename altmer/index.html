@@ -220,7 +220,61 @@
         .info-section li {
             margin-bottom: 0.5rem;
         }
-        
+
+        .related-tools-section {
+            background: #fef6ed;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            border: 1px solid #e9d9c6;
+            margin-bottom: 1.5rem;
+        }
+        .related-tools-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #8b5a2e;
+            margin-bottom: 1rem;
+            border-left: 4px solid #c28142;
+            padding-left: 0.8rem;
+        }
+        .related-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .related-tool-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #f3e5d5;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: block;
+        }
+        .related-tool-card:hover {
+            background: #fff;
+            border-color: #e0bc92;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .tool-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-name {
+            font-family: 'Merriweather', serif;
+            font-size: 0.95rem;
+            color: #a55117;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .tool-desc {
+            font-size: 0.78rem;
+            color: #5a4a3a;
+            line-height: 1.4;
+            margin: 0;
+        }
+
         footer {
             text-align: center;
             margin-top: 2rem;
@@ -284,6 +338,13 @@
             .info-section { padding: 0.75rem; border-radius: 1rem; }
             .info-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
             .info-section p { font-size: 0.8rem; margin-bottom: 0.6rem; }
+            .related-tools-section { padding: 0.75rem; border-radius: 1rem; }
+            .related-tools-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+            .related-tools-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .related-tool-card { padding: 0.6rem; }
+            .tool-icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+            .tool-name { font-size: 0.78rem; }
+            .tool-desc { font-size: 0.65rem; }
             footer { margin-top: 1rem; }
         }
     </style>
@@ -308,7 +369,86 @@
     <div class="results-section">
         <h2 class="results-title">Your Elegant Altmer Names</h2>
         <div class="names-grid" id="namesGrid">
-            <p style="text-align:center;color:#888;grid-column:1/-1;">Click the button above to generate your altmer names</p>
+            <div class="name-card">
+                <div class="name-text">Arthyn</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Noble light</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Arwen</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Noble maiden</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Belerion</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Golden dawn</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Beleriand</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Beautiful land</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Calwen</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Star song</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Calen</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Fair one</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Darien</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Moon guardian</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Dior</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Beautiful</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Eldarion</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Ancient king</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Eldarwen</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Star maiden</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Falion</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Sun's flame</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Falion</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Sun's flame</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Glorfindel</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Golden hair</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Galadriel</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Maiden crowned with a radiant garland</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Hirion</div>
+                <div class="name-gender">Male</div>
+                <div class="name-meaning">Eagle eye</div>
+            </div>
+            <div class="name-card">
+                <div class="name-text">Hirwen</div>
+                <div class="name-gender">Female</div>
+                <div class="name-meaning">Eagle maiden</div>
+            </div>
         </div>
     </div>
     
@@ -349,6 +489,77 @@
         <p>Hit the generate button and get 16 unique names every time. Perfect for finding that perfect name for your next elven character.</p>
     </div>
     
+    <div class="related-tools-section">
+        <h2>Related Tools</h2>
+        <div class="related-tools-grid">
+            <a href="/female/" class="related-tool-card">
+                <div class="tool-icon">🌸</div>
+                <h3 class="tool-name">Chinese Name Generator Female</h3>
+                <p class="tool-desc">Create beautiful Chinese female names with meanings and audio pronunciation.</p>
+            </a>
+            <a href="/skyrim/" class="related-tool-card">
+                <div class="tool-icon">🗡️</div>
+                <h3 class="tool-name">Skyrim Nord Name Generator</h3>
+                <p class="tool-desc">Generate authentic Skyrim Nord names for your Dragonborn character.</p>
+            </a>
+            <a href="/sith/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Sith Name Generator</h3>
+                <p class="tool-desc">Generate powerful Sith names for Star Wars characters and fan fiction.</p>
+            </a>
+            <a href="/necromancer/" class="related-tool-card">
+                <div class="tool-icon">💀</div>
+                <h3 class="tool-name">Necromancer Name Generator</h3>
+                <p class="tool-desc">Generate dark necromancer names for fantasy characters and D&amp;D.</p>
+            </a>
+            <a href="/dark/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Dark Souls Name Generator</h3>
+                <p class="tool-desc">Generate haunting Dark Souls-style names for fantasy characters.</p>
+            </a>
+            <a href="/duty/" class="related-tool-card">
+                <div class="tool-icon">🎮</div>
+                <h3 class="tool-name">Call of Duty Name Generator</h3>
+                <p class="tool-desc">Generate epic COD-style usernames for gaming profiles and clans.</p>
+            </a>
+            <a href="/werewolf/" class="related-tool-card">
+                <div class="tool-icon">🐺</div>
+                <h3 class="tool-name">Werewolf Name Generator</h3>
+                <p class="tool-desc">Generate fierce werewolf names for fantasy characters and stories.</p>
+            </a>
+            <a href="/barbarian/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Barbarian Name Generator</h3>
+                <p class="tool-desc">Generate powerful barbarian names for D&amp;D warriors and fighters.</p>
+            </a>
+            <a href="/leprechaun/" class="related-tool-card">
+                <div class="tool-icon">🍀</div>
+                <h3 class="tool-name">Leprechaun Name Generator</h3>
+                <p class="tool-desc">Generate magical leprechaun names for Irish folklore and D&amp;D.</p>
+            </a>
+            <a href="/psn/" class="related-tool-card">
+                <div class="tool-icon">🎮</div>
+                <h3 class="tool-name">Cool PSN Names Generator</h3>
+                <p class="tool-desc">Create awesome PlayStation Network names for your gaming profile.</p>
+            </a>
+            <a href="/elves/" class="related-tool-card">
+                <div class="tool-icon">✨</div>
+                <h3 class="tool-name">Elven Name Generator</h3>
+                <p class="tool-desc">Generate mystical elven names for D&amp;D, LOTR, and role-playing games.</p>
+            </a>
+            <a href="/nightelf/" class="related-tool-card">
+                <div class="tool-icon">🌙</div>
+                <h3 class="tool-name">Night Elf Name Generator</h3>
+                <p class="tool-desc">Generate mystical night elf names for World of Warcraft and RPGs.</p>
+            </a>
+            <a href="/orc/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Orc Name Generator</h3>
+                <p class="tool-desc">Create fierce orc names for Warcraft, LOTR, and RPG characters.</p>
+            </a>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 Altmer Name Generator. All rights reserved.</p>
         <p>
@@ -360,6 +571,20 @@
 </div>
 
 <script src="app.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('#namesGrid .name-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 40);
+        });
+    });
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
 <script>

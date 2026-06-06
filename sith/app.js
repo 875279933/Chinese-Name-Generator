@@ -476,4 +476,3 @@ function generateNames() {
     });
 }
 
-generateNames();

@@ -112,6 +112,69 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .related-tools-section {
+            background: #faf6ef;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e0d4be;
+            margin: 2rem 0;
+        }
+        .related-tools-section h2 {
+            font-family: 'Noto Serif SC', serif;
+            color: #6b5a3a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #8b7355;
+            padding-left: 0.8rem;
+        }
+        .related-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .related-tool-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #f0e6d2;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: block;
+        }
+        .related-tool-card:hover {
+            background: #fff;
+            border-color: #8b7355;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .tool-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-name {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.95rem;
+            color: #5d4e37;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .tool-desc {
+            font-size: 0.78rem;
+            color: #5a4a3a;
+            line-height: 1.4;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .related-tools-section { padding: 1rem; margin: 1.5rem 0; }
+            .related-tools-section h2 { font-size: 1.1rem; padding-left: 0.6rem; }
+            .related-tools-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .related-tool-card { padding: 0.6rem; }
+            .tool-icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+            .tool-name { font-size: 0.78rem; }
+            .tool-desc { font-size: 0.65rem; }
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -336,6 +399,77 @@
                     <span class="credential-badge">🏆 20+ Years Experience</span>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="related-tools-section">
+        <h2>Related Tools</h2>
+        <div class="related-tools-grid">
+            <a href="/skyrim/" class="related-tool-card">
+                <div class="tool-icon">🗡️</div>
+                <h3 class="tool-name">Skyrim Nord Name Generator</h3>
+                <p class="tool-desc">Generate authentic Skyrim Nord names for your Dragonborn character.</p>
+            </a>
+            <a href="/sith/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Sith Name Generator</h3>
+                <p class="tool-desc">Generate powerful Sith names for Star Wars characters and fan fiction.</p>
+            </a>
+            <a href="/necromancer/" class="related-tool-card">
+                <div class="tool-icon">💀</div>
+                <h3 class="tool-name">Necromancer Name Generator</h3>
+                <p class="tool-desc">Generate dark necromancer names for fantasy characters and D&amp;D.</p>
+            </a>
+            <a href="/dark/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Dark Souls Name Generator</h3>
+                <p class="tool-desc">Generate haunting Dark Souls-style names for fantasy characters.</p>
+            </a>
+            <a href="/altmer/" class="related-tool-card">
+                <div class="tool-icon">✨</div>
+                <h3 class="tool-name">Altmer Name Generator</h3>
+                <p class="tool-desc">Generate elegant High Elf names inspired by The Elder Scrolls.</p>
+            </a>
+            <a href="/duty/" class="related-tool-card">
+                <div class="tool-icon">🎮</div>
+                <h3 class="tool-name">Call of Duty Name Generator</h3>
+                <p class="tool-desc">Generate epic COD-style usernames for gaming profiles and clans.</p>
+            </a>
+            <a href="/werewolf/" class="related-tool-card">
+                <div class="tool-icon">🐺</div>
+                <h3 class="tool-name">Werewolf Name Generator</h3>
+                <p class="tool-desc">Generate fierce werewolf names for fantasy characters and stories.</p>
+            </a>
+            <a href="/barbarian/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Barbarian Name Generator</h3>
+                <p class="tool-desc">Generate powerful barbarian names for D&amp;D warriors and fighters.</p>
+            </a>
+            <a href="/leprechaun/" class="related-tool-card">
+                <div class="tool-icon">🍀</div>
+                <h3 class="tool-name">Leprechaun Name Generator</h3>
+                <p class="tool-desc">Generate magical leprechaun names for Irish folklore and D&amp;D.</p>
+            </a>
+            <a href="/psn/" class="related-tool-card">
+                <div class="tool-icon">🎮</div>
+                <h3 class="tool-name">Cool PSN Names Generator</h3>
+                <p class="tool-desc">Create awesome PlayStation Network names for your gaming profile.</p>
+            </a>
+            <a href="/elves/" class="related-tool-card">
+                <div class="tool-icon">✨</div>
+                <h3 class="tool-name">Elven Name Generator</h3>
+                <p class="tool-desc">Generate mystical elven names for D&amp;D, LOTR, and role-playing games.</p>
+            </a>
+            <a href="/nightelf/" class="related-tool-card">
+                <div class="tool-icon">🌙</div>
+                <h3 class="tool-name">Night Elf Name Generator</h3>
+                <p class="tool-desc">Generate mystical night elf names for World of Warcraft and RPGs.</p>
+            </a>
+            <a href="/orc/" class="related-tool-card">
+                <div class="tool-icon">⚔️</div>
+                <h3 class="tool-name">Orc Name Generator</h3>
+                <p class="tool-desc">Create fierce orc names for Warcraft, LOTR, and RPG characters.</p>
+            </a>
         </div>
     </div>
 

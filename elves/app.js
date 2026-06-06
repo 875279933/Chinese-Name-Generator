@@ -476,5 +476,3 @@ function shuffleArray(array) {
     }
     return array;
 }
-
-generateNames();

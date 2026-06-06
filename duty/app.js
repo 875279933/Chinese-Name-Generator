@@ -385,5 +385,3 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
         btn.classList.add('active');
     });
 });
-
-document.addEventListener('DOMContentLoaded', generateNames);

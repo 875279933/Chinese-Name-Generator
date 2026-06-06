@@ -1182,5 +1182,3 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
         generateNames();
     });
 });
-
-generateNames();

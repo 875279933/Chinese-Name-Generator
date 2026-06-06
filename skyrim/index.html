@@ -97,6 +97,59 @@
         .info-section p { color: #5a4a3a; font-size: 0.95rem; margin-bottom: 0.8rem; }
         .info-section ul { margin-left: 1.5rem; color: #5a4a3a; margin-bottom: 1rem; }
         .info-section li { margin-bottom: 0.5rem; }
+
+        .related-tools-section {
+            background: #fef6ed;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e9d9c6;
+            margin-bottom: 1.5rem;
+        }
+        .related-tools-section h2 {
+            font-family: 'Merriweather', serif;
+            color: #6b5a3a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #8b7355;
+            padding-left: 0.8rem;
+        }
+        .related-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .related-tool-card {
+            background: #ffffffdb;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #f3e5d5;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: block;
+        }
+        .related-tool-card:hover {
+            background: #fff;
+            border-color: #d4b896;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .tool-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-name {
+            font-family: 'Merriweather', serif;
+            font-size: 0.95rem;
+            color: #5d4e37;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .tool-desc {
+            font-size: 0.78rem;
+            color: #5a4a3a;
+            line-height: 1.4;
+            margin: 0;
+        }
         
         .lore-section { background: rgba(44,39,34,0.03); border-radius: 1.5rem; padding: 1.5rem 2rem; border: 1px solid rgba(44,39,34,0.1); margin-bottom: 1.5rem; }
         .lore-section h2 { font-family: 'Merriweather', serif; color: #4d3b2c; font-size: 1.3rem; margin-bottom: 1rem; text-align: center; }
@@ -133,6 +186,13 @@
             .lore-section { padding: 1rem; margin-bottom: 1rem; }
             .lore-section h2 { font-size: 1.1rem; }
             .lore-section p { font-size: 0.85rem; }
+            .related-tools-section { padding: 1rem; margin-bottom: 1rem; }
+            .related-tools-section h2 { font-size: 1.1rem; padding-left: 0.6rem; }
+            .related-tools-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .related-tool-card { padding: 0.6rem; }
+            .tool-icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+            .tool-name { font-size: 0.78rem; }
+            .tool-desc { font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -155,7 +215,88 @@
         
         <div class="results-section">
             <div class="results-title">Generated Nord Names</div>
-            <div class="names-grid" id="namesGrid"></div>
+            <div class="names-grid" id="namesGrid">
+                <div class="name-card">
+                    <div class="name-text">Ulfric Stormcloak</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Wolf-Ruler Storm-Cloak</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Lydia</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">From Lydia</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Balgruuf the Greater</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Bold-Gruff the Great</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Mjoll the Lioness</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">Mjoll the Lioness</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Jarl Balgruuf</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Earl Bold-Gruff</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Aela the Huntress</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">Aela the Huntress</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Erik the Slayer</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Erik the Killer</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Serana</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">Star</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Ralof</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Wanderer</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Isran</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">Iron</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Hadvar</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Warrior</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Valerica</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">Strong</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Torygg</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">King</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Fura</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">Fox</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Vignar Grey-Mane</div>
+                    <div class="name-gender">Male</div>
+                    <div class="name-meaning">Wanderer Grey-Mane</div>
+                </div>
+                <div class="name-card">
+                    <div class="name-text">Gunmar</div>
+                    <div class="name-gender">Female</div>
+                    <div class="name-meaning">War Famous</div>
+                </div>
+            </div>
         </div>
         
         <div class="lore-section">
@@ -186,7 +327,78 @@
             </ul>
             <p>Hit generate and you'll get 16 fresh names every time. Each one comes with a meaning rooted in Nordic tradition, so your character always has a story behind their name.</p>
         </div>
-        
+
+        <div class="related-tools-section">
+            <h2>Related Tools</h2>
+            <div class="related-tools-grid">
+                <a href="/female/" class="related-tool-card">
+                    <div class="tool-icon">🌸</div>
+                    <h3 class="tool-name">Chinese Name Generator Female</h3>
+                    <p class="tool-desc">Create beautiful Chinese female names with meanings and audio pronunciation.</p>
+                </a>
+                <a href="/sith/" class="related-tool-card">
+                    <div class="tool-icon">⚔️</div>
+                    <h3 class="tool-name">Sith Name Generator</h3>
+                    <p class="tool-desc">Generate powerful Sith names for Star Wars characters and fan fiction.</p>
+                </a>
+                <a href="/necromancer/" class="related-tool-card">
+                    <div class="tool-icon">💀</div>
+                    <h3 class="tool-name">Necromancer Name Generator</h3>
+                    <p class="tool-desc">Generate dark necromancer names for fantasy characters and D&amp;D.</p>
+                </a>
+                <a href="/dark/" class="related-tool-card">
+                    <div class="tool-icon">⚔️</div>
+                    <h3 class="tool-name">Dark Souls Name Generator</h3>
+                    <p class="tool-desc">Generate haunting Dark Souls-style names for fantasy characters.</p>
+                </a>
+                <a href="/altmer/" class="related-tool-card">
+                    <div class="tool-icon">✨</div>
+                    <h3 class="tool-name">Altmer Name Generator</h3>
+                    <p class="tool-desc">Generate elegant High Elf names inspired by The Elder Scrolls.</p>
+                </a>
+                <a href="/duty/" class="related-tool-card">
+                    <div class="tool-icon">🎮</div>
+                    <h3 class="tool-name">Call of Duty Name Generator</h3>
+                    <p class="tool-desc">Generate epic COD-style usernames for gaming profiles and clans.</p>
+                </a>
+                <a href="/werewolf/" class="related-tool-card">
+                    <div class="tool-icon">🐺</div>
+                    <h3 class="tool-name">Werewolf Name Generator</h3>
+                    <p class="tool-desc">Generate fierce werewolf names for fantasy characters and stories.</p>
+                </a>
+                <a href="/barbarian/" class="related-tool-card">
+                    <div class="tool-icon">⚔️</div>
+                    <h3 class="tool-name">Barbarian Name Generator</h3>
+                    <p class="tool-desc">Generate powerful barbarian names for D&amp;D warriors and fighters.</p>
+                </a>
+                <a href="/leprechaun/" class="related-tool-card">
+                    <div class="tool-icon">🍀</div>
+                    <h3 class="tool-name">Leprechaun Name Generator</h3>
+                    <p class="tool-desc">Generate magical leprechaun names for Irish folklore and D&amp;D.</p>
+                </a>
+                <a href="/psn/" class="related-tool-card">
+                    <div class="tool-icon">🎮</div>
+                    <h3 class="tool-name">Cool PSN Names Generator</h3>
+                    <p class="tool-desc">Create awesome PlayStation Network names for your gaming profile.</p>
+                </a>
+                <a href="/elves/" class="related-tool-card">
+                    <div class="tool-icon">✨</div>
+                    <h3 class="tool-name">Elven Name Generator</h3>
+                    <p class="tool-desc">Generate mystical elven names for D&amp;D, LOTR, and role-playing games.</p>
+                </a>
+                <a href="/nightelf/" class="related-tool-card">
+                    <div class="tool-icon">🌙</div>
+                    <h3 class="tool-name">Night Elf Name Generator</h3>
+                    <p class="tool-desc">Generate mystical night elf names for World of Warcraft and RPGs.</p>
+                </a>
+                <a href="/orc/" class="related-tool-card">
+                    <div class="tool-icon">⚔️</div>
+                    <h3 class="tool-name">Orc Name Generator</h3>
+                    <p class="tool-desc">Create fierce orc names for Warcraft, LOTR, and RPG characters.</p>
+                </a>
+            </div>
+        </div>
+
         <footer>
             <p>© 2026 Skyrim Nord Name Generator. All rights reserved.</p>
             <p>
@@ -198,6 +410,20 @@
     </div>
     
     <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('#namesGrid .name-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.3s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 40);
+            });
+        });
+    </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM99ZRRCRX"></script>
 <script>
