@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "https://chinesezodiaccouples.com/name/",
+      "source": "/:path*",
+      "destination": "https://chinesezodiaccouples.com/name/:path*",
       "permanent": true
     }
   ]
